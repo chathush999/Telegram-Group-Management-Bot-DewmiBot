@@ -462,19 +462,19 @@ def adminlist(update, context):
 
 
 __help__ = """
- 👉 /admins*:* list of admins in the chat
+@szrosebot🇱🇰
+ ❍ /admins*:* list of admins in the chat
 
 *Admins only:*
- 👉 /pin*:* silently pins the message replied to - add `'loud'` or `'notify'` to give notifs to users
- 👉 /unpin*:* unpins the currently pinned message
- 👉 /invitelink*:* gets invitelink
- 👉 /promote*:* promotes the user replied to
- 👉 /demote*:* demotes the user replied to
- 👉 /title <title here>*:* sets a custom title for an admin that the bot promoted
- 👉 /admincache*:* force refresh the admins list
- 👉 /zombies*:* scan and clean zombies
+ ❍ /pin*:* silently pins the message replied to - add `'loud'` or `'notify'` to give notifs to users
+ ❍ /unpin*:* unpins the currently pinned message
+ ❍ /invitelink*:* gets invitelink
+ ❍ /promote*:* promotes the user replied to
+ ❍ /demote*:* demotes the user replied to
+ ❍ /title <title here>*:* sets a custom title for an admin that the bot promoted
+ ❍ /admincache*:* force refresh the admins list
+ ❍ /zombies*:* scan and clean zombies
   
- @dewmibot
 """
 
 ADMINLIST_HANDLER = DisableAbleCommandHandler("admins", adminlist)
@@ -501,7 +501,7 @@ dispatcher.add_handler(DEMOTE_HANDLER)
 dispatcher.add_handler(SET_TITLE_HANDLER)
 dispatcher.add_handler(ADMIN_REFRESH_HANDLER)
 
-__mod_name__ = "Admin 🎖"
+__mod_name__ = "Admin"
 __command_list__ = [
     "adminlist",
     "admins",
