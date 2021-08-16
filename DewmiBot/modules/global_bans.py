@@ -535,8 +535,10 @@ def __chat_settings__(chat_id, user_id):
 
 
 __help__ = f"""
+@szrosebot🇱🇰
+
 *Admins only:*
- 👉 `/antispam <on/off/yes/no>`*:* Will toggle our antispam tech or return your current settings.
+ ❍ `/antispam <on/off/yes/no>`*:* Will toggle our antispam tech or return your current settings.
 
 Anti-Spam, used by bot devs to ban spammers across all groups. This helps protect \
 you and your groups by removing spam flooders as quickly as possible.
@@ -548,7 +550,7 @@ SpamWatch maintains a large constantly updated ban-list of spambots, trolls, bit
 Constantly help banning spammers off from your group automatically So, you wont have to worry about spammers storming your group.
 *Note:* Users can appeal spamwatch bans at @SpamwatchSupport
 
-@dewmibot
+
 """
 
 GBAN_HANDLER = CommandHandler("gban", gban)
