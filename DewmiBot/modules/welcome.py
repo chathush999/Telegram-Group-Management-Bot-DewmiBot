@@ -1061,24 +1061,24 @@ def __chat_settings__(chat_id, user_id):
 
 __help__ = """
 *Admins only:*
- 👉 /welcome <on/off>*:* enable/disable welcome messages.
- 👉 /welcome*:* shows current welcome settings.
- 👉 /welcome noformat*:* shows current welcome settings, without the formatting - useful to recycle your welcome messages!
- 👉 /goodbye*:* same usage and args as `/welcome`.
- 👉 /setwelcome <sometext>*:* set a custom welcome message. If used replying to media, uses that media.
- 👉 /setgoodbye <sometext>*:* set a custom goodbye message. If used replying to media, uses that media.
- 👉 /resetwelcome*:* reset to the default welcome message.
- 👉 /resetgoodbye*:* reset to the default goodbye message.
- 👉 /cleanwelcome <on/off>*:* On new member, try to delete the previous welcome message to avoid spamming the chat.
- 👉 /welcomemutehelp*:* gives information about welcome mutes.
- 👉 /cleanservice <on/off*:* deletes telegrams welcome/left service messages. 
+ ❍ /welcome <on/off>*:* enable/disable welcome messages.
+ ❍ /welcome*:* shows current welcome settings.
+ ❍ /welcome noformat*:* shows current welcome settings, without the formatting - useful to recycle your welcome messages!
+ ❍ /goodbye*:* same usage and args as `/welcome`.
+ ❍ /setwelcome <sometext>*:* set a custom welcome message. If used replying to media, uses that media.
+ ❍ /setgoodbye <sometext>*:* set a custom goodbye message. If used replying to media, uses that media.
+ ❍ /resetwelcome*:* reset to the default welcome message.
+ ❍ /resetgoodbye*:* reset to the default goodbye message.
+ ❍ /cleanwelcome <on/off>*:* On new member, try to delete the previous welcome message to avoid spamming the chat.
+ ❍ /welcomemutehelp*:* gives information about welcome mutes.
+ ❍ /cleanservice <on/off*:* deletes telegrams welcome/left service messages. 
  *Example:*
 user joined chat, user left chat.
 
 *Welcome markdown:* 
- 👉 `/welcomehelp`*:* view more formatting information for custom welcome/goodbye messages.
+ ❍ `/welcomehelp`*:* view more formatting information for custom welcome/goodbye messages.
  
- @dewmibot
+
 """
 
 NEW_MEM_HANDLER = MessageHandler(Filters.status_update.new_chat_members, new_member)
@@ -1113,7 +1113,7 @@ dispatcher.add_handler(CLEAN_SERVICE_HANDLER)
 dispatcher.add_handler(BUTTON_VERIFY_HANDLER)
 dispatcher.add_handler(WELCOME_MUTE_HELP)
 
-__mod_name__ = "Greetings 🙏"
+__mod_name__ = "Greetings"
 __command_list__ = []
 __handlers__ = [
     NEW_MEM_HANDLER,
