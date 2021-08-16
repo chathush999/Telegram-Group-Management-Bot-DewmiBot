@@ -180,7 +180,7 @@ if is_module_loaded(FILENAME):
             message.reply_text("No log channel has been set yet!")
 
     def __stats__():
-        return f"• {sql.num_logchannels()} log channels set."
+        return f"➖ {sql.num_logchannels()} log channels set."
 
     def __migrate__(old_chat_id, new_chat_id):
         sql.migrate_chat(old_chat_id, new_chat_id)
@@ -193,20 +193,20 @@ if is_module_loaded(FILENAME):
         return "No log channel is set for this group!"
 
     __help__ = """
+    @szrosebot🇱🇰
 *Admins only:*
-✪ /logchannel*:* get log channel info
-✪ /setlog*:* set the log channel.
-✪ /unsetlog*:* unset the log channel.
+❍ /logchannel*:* get log channel info
+❍ /setlog*:* set the log channel.
+❍ /unsetlog*:* unset the log channel.
 
 *Setting the log channel is done by:*
  *1.* adding the bot to the desired channel (as an admin!)
  *2.* sending `/setlog` in the channel
  *3.* forwarding the `/setlog` to the group
  
- @dewmibot
 """
 
-    __mod_name__ = "Logger 📝"
+    __mod_name__ = "Logger "
 
     LOG_HANDLER = CommandHandler("logchannel", logging)
     SET_LOG_HANDLER = CommandHandler("setlog", setlog)
