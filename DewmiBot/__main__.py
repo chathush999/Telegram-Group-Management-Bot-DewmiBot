@@ -71,18 +71,9 @@ If you want to know how to use me just press on Help🛠 button below or hit /he
 """
 
 HELP_STRINGS = f"""
-*Rose Help Menu :* [🌹](https://telegra.ph/file/14e7d126eb01b0e49dc93.jpg)
-Hey there 👋 * 🌹 My name is Rose *
-I'm Powerful BOT to Make Your Groups Secured and Organized & I help admins to manage their groups! Have a look at the following for an idea of some of \
-the things I can help you with.
-
-Main commands available:
- ❍ /help: PM's you this message.
- ❍ /help <module name>: PM's you info about that module.
- ❍ /donate: information on how to donate!
- ❍ /settings:
-   ❍ in PM: will send you your settings for all supported modules.
-   ❍ in a group: will redirect you to pm, with all that chat's settings.
+*Rose Help Menu*
+I'm Rose bot 🇱🇰
+The following functions will helpful to you to manage your group🙂
 """.format(
     dispatcher.bot.first_name,
     "" if not ALLOW_EXCL else "\nAll commands can either be used with / or !.\n",
