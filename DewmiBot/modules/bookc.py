@@ -5,7 +5,7 @@ import requests
 from bs4 import BeautifulSoup
 from telethon import events
 
-from DewmiBot import tbot
+from tele import tbot
 
 
 @tbot.on(events.NewMessage(pattern="^/book (.*)"))
