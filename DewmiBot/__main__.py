@@ -60,8 +60,6 @@ from DewmiBot.modules.helper_funcs.chat_status import is_user_admin
 from DewmiBot.modules.helper_funcs.misc import paginate_modules
 from DewmiBot.modules.helper_funcs.readable_time import get_readable_time
 
-STICKER = "CAACAgUAAxkBAAIkxGEbe0WsUlswUZzpO_R6ZfaUK-PwAAIRAwACHUmhVNYuprqSm_zGIAQ"
-
 PM_START_TEXT = """
 *Hey there 👋 * 🌹 My name is Rose !
 
@@ -241,9 +239,7 @@ def start(update: Update, context: CallbackContext):
                 IMPORTED["rules"].send_rules(update, args[0], from_pm=True)
                 
         else:       
-            update.effective_message.reply_sticker(
-            update.effective_message.reply_text(
-                STICKER,    
+            update.effective_message.reply_text(   
                 PM_START_TEXT,
                 reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
