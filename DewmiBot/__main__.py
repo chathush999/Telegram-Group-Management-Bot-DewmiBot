@@ -242,13 +242,12 @@ def start(update: Update, context: CallbackContext):
                 
         else:       
             update.effective_message.reply_sticker(
-                STICKER,
-                timeout=60,
-            )
             update.effective_message.reply_text(
+                STICKER,    
                 PM_START_TEXT,
                 reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
+                timeout=60,
             )
     else:
         update.effective_message.reply_text(
