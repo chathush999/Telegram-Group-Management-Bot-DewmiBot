@@ -10,8 +10,7 @@ from DewmiBot.modules.helper_funcs.chat_status import user_admin
 @user_admin
 def send(update, context):
     args = update.effective_message.text.split(None, 1)
-    creply = args[1]
-    send_message(update.effective_message, creply)
+    send_message(update.effective_message,)
 
 
 ADD_CCHAT_HANDLER = DisableAbleCommandHandler("snd", send)
