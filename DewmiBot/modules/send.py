@@ -5,12 +5,12 @@ from DewmiBot.modules.disable import DisableAbleCommandHandler
 from DewmiBot.modules.helper_funcs.alternate import send_message
 from DewmiBot.modules.helper_funcs.chat_status import user_admin
 
-
 @run_async
 @user_admin
 def send(update, context):
     args = update.effective_message.text.split(None, 1)
-    send_message(update.effective_message,)
+    creply = args[1]
+    send_message(update.effective_message, creply)
 
 
 ADD_CCHAT_HANDLER = DisableAbleCommandHandler("snd", send)
