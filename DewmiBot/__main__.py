@@ -69,7 +69,6 @@ If you want to know how to use me just press on Help🛠 button below or hit /he
 
 @sl_bot_zone Projects 🇱🇰
 """
-ROSEBOT_STICKER = "CAACAgUAAxkBAALLL2EUjvv53FTlrJ2NeS2FHL_sfvPMAAIRAwACHUmhVNYuprqSm_zGIAQ"
 
 HELP_STRINGS = f"""
 *Rose Help Menu :* [🌹](https://telegra.ph/file/14e7d126eb01b0e49dc93.jpg)
@@ -242,15 +241,11 @@ def start(update: Update, context: CallbackContext):
                 IMPORTED["rules"].send_rules(update, args[0], from_pm=True)
 
         else:
-            update.effective_user.first_name
-            update.effective_message.reply_sticker(
-                ROSEBOT_STICKER,
-                timeout=60,
-            )
             update.effective_message.reply_text(
                 PM_START_TEXT,
-                reply_markup=InlineKeyboardMarkup(buttons),
+                reply_markup=InlineKeyboardMarkup(BUTTONS),
                 parse_mode=ParseMode.MARKDOWN,
+                timeout=60, 
             )
     else:
         update.effective_message.reply_text(
