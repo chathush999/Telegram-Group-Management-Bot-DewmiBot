@@ -101,7 +101,7 @@ BUTTONS = [
                     [
                         InlineKeyboardButton(
                             text="🛠 Help ",
-                            url= "http://t.me/szrosebot?start=help"),
+                            callback_data="help_back"),
                          InlineKeyboardButton(
                             text="🥺Support Me ",
                              url="https://www.youtube.com/channel/UCvYfJcTr8RY72dIapzMqFQA")        
@@ -185,7 +185,11 @@ def send_help(chat_id, text, keyboard=None):
     if not keyboard:
         keyboard = InlineKeyboardMarkup(paginate_modules(0, HELPABLE, "help"))
     dispatcher.bot.send_message(
-        chat_id=chat_id, text=text, parse_mode=ParseMode.MARKDOWN, reply_markup=keyboard
+        chat_id=chat_id,
+        text=text,
+        parse_mode=ParseMode.MARKDOWN,
+        disable_web_page_preview=True,
+        reply_markup=keyboard,
     )
 
 
