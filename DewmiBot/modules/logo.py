@@ -84,13 +84,13 @@ async def lego(event):
  await event.reply('Creating your logo...wait!')
  try:
     text = event.pattern_match.group(1)
-    img = Image.open('./AnkiVector/resources/blackbg.jpg')
+    img = Image.open('./DewmiBot/resources/blackbg.jpg')
     draw = ImageDraw.Draw(img)
     image_widthz, image_heightz = img.size
     pointsize = 500
     fillcolor = "gold"
     shadowcolor = "blue"
-    font = ImageFont.truetype("./AnkiVector/resources/Chopsic.otf", 330)
+    font = ImageFont.truetype("./DewmiBot/resources/Chopsic.otf", 330)
     w, h = draw.textsize(text, font=font)
     h += int(h*0.21)
     image_width, image_height = img.size
@@ -121,13 +121,13 @@ async def lego(event):
  await event.reply('Creating your logo...wait!')
  try:
     text = event.pattern_match.group(1)
-    img = Image.open('./AnkiVector/resources/blackbg.jpg')
+    img = Image.open('./DewmiBot/resources/blackbg.jpg')
     draw = ImageDraw.Draw(img)
     image_widthz, image_heightz = img.size
     pointsize = 500
     fillcolor = "gold"
     shadowcolor = "blue"
-    font = ImageFont.truetype("./AnkiVector/resources/Chopsic.otf", 950)
+    font = ImageFont.truetype("./DewmiBot/resources/Chopsic.otf", 950)
     w, h = draw.textsize(text, font=font)
     h += int(h*0.21)
     image_width, image_height = img.size
@@ -159,13 +159,13 @@ async def lego(event):
  await event.reply('Creating your logo...wait!')
  try:
     text = event.pattern_match.group(1)
-    img = Image.open('./AnkiVector/resources/blackbg.jpg')
+    img = Image.open('./DewmiBot/resources/blackbg.jpg')
     draw = ImageDraw.Draw(img)
     image_widthz, image_heightz = img.size
     pointsize = 500
     fillcolor = "white"
     shadowcolor = "blue"
-    font = ImageFont.truetype("./AnkiVector/resources/Maghrib.ttf", 1000)
+    font = ImageFont.truetype("./DewmiBot/resources/Maghrib.ttf", 1000)
     w, h = draw.textsize(text, font=font)
     h += int(h*0.21)
     image_width, image_height = img.size
@@ -206,7 +206,7 @@ async def logo_gen(event):
             pics.append(i)
         id_ = random.choice(pics)
         bg_ = await id_.download_media()
-        fpath_ = glob.glob("AnkiVector/resources/*")
+        fpath_ = glob.glob("DewmiBot/resources/*")
         font_ = random.choice(fpath_)
     if not bg_:
         pics = []
@@ -217,7 +217,7 @@ async def logo_gen(event):
         id_ = random.choice(pics)
         bg_ = await id_.download_media()
     if not font_:
-        fpath_ = glob.glob("AnkiVector/resources/*")
+        fpath_ = glob.glob("DewmiBot/resources/*")
         font_ = random.choice(fpath_)
     if len(name) <= 8:
         fnt_size = 150
@@ -260,7 +260,7 @@ async def logo_gen(event):
     if os.path.exists(bg_):
         os.remove(bg_)
     if os.path.exists(font_):
-        if not font_.startswith("AnkiVector/resources/"):
+        if not font_.startswith("DewmiBot/resources/"):
             os.remove(font_)    
  
 
@@ -279,13 +279,13 @@ async def lego(event):
  await event.reply('Creating your logo...wait!')
  try:
     text = event.pattern_match.group(1)
-    img = Image.open('./AnkiVector/resources/blackbg.jpg')
+    img = Image.open('./DewmiBot/resources/blackbg.jpg')
     draw = ImageDraw.Draw(img)
     image_widthz, image_heightz = img.size
     pointsize = 500
     fillcolor = "gold"
     shadowcolor = "blue"
-    font = ImageFont.truetype("./AnkiVector/resources/Chopsic.otf", 330)
+    font = ImageFont.truetype("./DewmiBot/resources/Chopsic.otf", 330)
     w, h = draw.textsize(text, font=font)
     h += int(h*0.21)
     image_width, image_height = img.size
@@ -317,13 +317,13 @@ async def lego(event):
  await event.reply('Creating your logo...wait!')
  try:
     text = event.pattern_match.group(1)
-    img = Image.open('./AnkiVector/resources/pandabg.png')
+    img = Image.open('./DewmiBot/resources/pandabg.png')
     draw = ImageDraw.Draw(img)
     image_widthz, image_heightz = img.size
     pointsize = 25
     fillcolor = "gold"
     shadowcolor = "blue"
-    font = ImageFont.truetype("./AnkiVector/resources/font.otf", 100)
+    font = ImageFont.truetype("./DewmiBot/resources/font.otf", 100)
     w, h = draw.textsize(text, font=font)
     h += int(h*0.21)
     image_width, image_height = img.size
