@@ -104,7 +104,7 @@ async def lego(event):
     if os.path.exists(fname2):
             os.remove(fname2)
  except Exception as e:
-   await event.reply(f'Error Go to Help From  @slbotzone, {e}')
+   await event.reply(f'Join with us ~ @sl_bot_zone to use this, {e}')
 
 @register(pattern="^/biglogo ?(.*)")
 async def lego(event):
@@ -141,7 +141,7 @@ async def lego(event):
     if os.path.exists(fname2):
             os.remove(fname2)
  except Exception as e:
-   await event.reply(f'Error Go to Help From  @slbotzone, {e}')
+   await event.reply(f'Join with us ~ @sl_bot_zone to use this, {e}')
 
 
 @register(pattern="^/wlogo ?(.*)")
@@ -179,7 +179,7 @@ async def lego(event):
     if os.path.exists(fname2):
             os.remove(fname2)
  except Exception as e:
-   await event.reply(f'Error Go to Help From  @slbotzone, {e}')
+   await event.reply(f'Join with us ~ @sl_bot_zone to use this, {e}')
 
 @register(pattern="^/daalogo ?(.*)")
 async def logo_gen(event):
@@ -299,7 +299,7 @@ async def lego(event):
     if os.path.exists(fname2):
             os.remove(fname2)
  except Exception as e:
-   await event.reply(f'Error Go to Help From  @sl_bot_zone, {e}')
+   await event.reply(f'Join with us ~ @sl_bot_zone to use this, {e}')
   
 
 @register(pattern="^/pandalogo ?(.*)")
@@ -337,7 +337,7 @@ async def lego(event):
     if os.path.exists(fname2):
             os.remove(fname2)
  except Exception as e:
-   await event.reply(f'Error Go to Help From  @slbotzone, {e}')
+   await event.reply(f'Join with us ~ @sl_bot_zone to use this, {e}')
   
 file_help = os.path.basename(__file__)
 file_help = file_help.replace(".py", "")
