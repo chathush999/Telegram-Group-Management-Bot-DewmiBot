@@ -72,8 +72,11 @@ If you want to know how to use me just press on Help🛠 button below or hit /he
 
 HELP_STRINGS = f"""
 *Rose Help Menu*
+
 I'm Rose bot 🇱🇰
+
 The following functions will helpful to you to manage your group🙂
+
 """.format(
     dispatcher.bot.first_name,
     "" if not ALLOW_EXCL else "\nAll commands can either be used with / or !.\n",
