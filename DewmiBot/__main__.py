@@ -61,7 +61,7 @@ from DewmiBot.modules.helper_funcs.misc import paginate_modules
 from DewmiBot.modules.helper_funcs.readable_time import get_readable_time
 
 PM_START_TEXT = """
-*Hey there 👋 * 🌹 My name is Rose [🌹](https://telegra.ph/file/14e7d126eb01b0e49dc93.jpg) !
+*Hey there 👋 * 🌹 My name is Rose !
 
 I can manage your groups with more functions 😏
 
@@ -69,6 +69,7 @@ If you want to know how to use me just press on Help🛠 button below or hit /he
 
 @sl_bot_zone Projects 🇱🇰
 """
+ROSEBOT_STICKER = "CAACAgUAAxkBAALLL2EUjvv53FTlrJ2NeS2FHL_sfvPMAAIRAwACHUmhVNYuprqSm_zGIAQ"
 
 HELP_STRINGS = f"""
 *Rose Help Menu :* [🌹](https://telegra.ph/file/14e7d126eb01b0e49dc93.jpg)
@@ -106,19 +107,19 @@ BUTTONS = [
                     ],
                     [
                         InlineKeyboardButton(
-                            text="Help 🛠",
+                            text="🛠 Help ",
                             url= "http://t.me/szrosebot?start=help"),
                          InlineKeyboardButton(
-                            text="Support Me 🥺",
+                            text="🥺Support Me ",
                              url="https://www.youtube.com/channel/UCvYfJcTr8RY72dIapzMqFQA")        
                        
                     ],
                     [
                         InlineKeyboardButton(
                             text="⚡️ Developer ",
-                            url= "http://t.me/szrosebot?start=help"),
+                            url= "http://t.me/supunma"),
                          InlineKeyboardButton(
-                            text="Free internet ",
+                            text="🔍Inline search ",
                             switch_inline_query_current_chat="")        
                        
                     ],
@@ -241,11 +242,15 @@ def start(update: Update, context: CallbackContext):
                 IMPORTED["rules"].send_rules(update, args[0], from_pm=True)
 
         else:
+            update.effective_user.first_name
+            update.effective_message.reply_sticker(
+                ROSEBOT_STICKER,
+                timeout=60,
+            )
             update.effective_message.reply_text(
                 PM_START_TEXT,
-                reply_markup=InlineKeyboardMarkup(BUTTONS),
+                reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
-                timeout=60, 
             )
     else:
         update.effective_message.reply_text(
