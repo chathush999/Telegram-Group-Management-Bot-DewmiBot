@@ -309,7 +309,6 @@ file_helpo = file_help.replace("_", " ")
 __help__ = """
 @szrosebot🇱🇰
  ❍ /logo text :  Create your logo with your name
- ❍ /biglogo text :  Create your logo Bigger Than `logo`
  ❍ /wlogo text :  Create your logo with your name
  ❍ /redlogo text :  Create your logo with your name
  """
