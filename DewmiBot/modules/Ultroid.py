@@ -4,11 +4,15 @@
 # PLease read the GNU Affero General Public License in
 # <https://www.github.com/TeamUltroid/Ultroid/blob/main/LICENSE/>.
 
-import glob
-import os
-import random
-
+from DewmiBot.events import register
+from DewmiBot import OWNER_ID
+from DewmiBot import telethn as tbot
+import os 
 from PIL import Image, ImageDraw, ImageFont
+import shutil 
+import random, re
+import glob
+import time
 from telethon.tl.types import InputMessagesFilterPhotos
 
 
