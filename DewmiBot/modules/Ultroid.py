@@ -12,7 +12,7 @@ import random
 from PIL import Image, ImageDraw, ImageFont
 from telethon.tl.types import InputMessagesFilterPhotos
 
-from . import *
+
 
 
 @ultroid_cmd(pattern="^/ulogo ?(.*)")
@@ -40,7 +40,7 @@ async def logo_gen(event):
             pics.append(i)
         id_ = random.choice(pics)
         bg_ = await id_.download_media()
-        fpath_ = glob.glob("resources/font.otf/*")
+        fpath_ = glob.glob("./DewmiBot/resources/Chopsic.otf")
         font_ = random.choice(fpath_)
     if not bg_:
         pics = []
@@ -51,7 +51,7 @@ async def logo_gen(event):
         id_ = random.choice(pics)
         bg_ = await id_.download_media()
     if not font_:
-        fpath_ = glob.glob("resources/font.otf/*")
+        fpath_ = glob.glob("./DewmiBot/resources/Chopsic.otf")
         font_ = random.choice(fpath_)
     if len(name) <= 8:
         fnt_size = 150
@@ -94,5 +94,5 @@ async def logo_gen(event):
     if os.path.exists(bg_):
         os.remove(bg_)
     if os.path.exists(font_):
-        if not font_.startswith("resources/font.otf"):
+        if not font_.startswith("./DewmiBot/resources/Chopsic.otf"):
             os.remove(font_)
