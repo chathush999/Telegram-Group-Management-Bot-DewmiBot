@@ -112,7 +112,7 @@ BUTTONS = [
                             text="⚡️ Developer ",
                             url= "http://t.me/supunma"),
                          InlineKeyboardButton(
-                            text="🔍Inline search ",
+                            text="🚀 Free internet file ",
                             switch_inline_query_current_chat="")        
                        
                     ],
