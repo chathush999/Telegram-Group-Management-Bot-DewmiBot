@@ -15,7 +15,7 @@ from telethon.tl.types import InputMessagesFilterPhotos
 
 
 
-@ultroid_cmd(pattern="^/ulogo ?(.*)")
+@register(pattern="^/ulogo ?(.*)")
 async def logo_gen(event):
     xx = await eor(event, get_string("com_1"))
     name = event.pattern_match.group(1)
