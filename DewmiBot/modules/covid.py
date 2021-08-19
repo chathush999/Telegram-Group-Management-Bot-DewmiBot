@@ -21,4 +21,4 @@ def covid(update: Update, context: CallbackContext):
 
 
 COVID_HANDLER = DisableAbleCommandHandler(["covid", "corona"], covid)
-dispatcher.add_handler(COVID_HANDLER))
+dispatcher.add_handler(COVID_HANDLER)
