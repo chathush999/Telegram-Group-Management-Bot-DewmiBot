@@ -7,7 +7,7 @@ from DewmiBot.modules.disable import DisableAbleCommandHandler
 
 
 @run_async
-def scovid(update: Update, context: CallbackContext):
+def covid(update: Update, context: CallbackContext):
     message = update.effective_message
     text = message.text.split(" ", 1)
     if len(text) == 1:
@@ -17,5 +17,5 @@ def scovid(update: Update, context: CallbackContext):
     message.reply_text(reply_text, parse_mode=ParseMode.MARKDOWN)
 
 
-COVID_HANDLER = DisableAbleCommandHandler(["scovid", "scorona"], covid)
+COVID_HANDLER = DisableAbleCommandHandler(["covid", "corona"], covid)
 dispatcher.add_handler(COVID_HANDLER)
