@@ -61,13 +61,15 @@ from DewmiBot.modules.helper_funcs.misc import paginate_modules
 from DewmiBot.modules.helper_funcs.readable_time import get_readable_time
 
 PM_START_TEXT = """
-*Hey there 👋 * 🌹 My name is Rose !
+**Hi**{message.from_user.mention}
 
-I can manage your groups with more functions 😏
+Rose bot(http://t.me/szrosebot) is **the most complete** Bot to help you **manage** your 
+groups easily and **safely!** 
 
-If you want to know how to use me just press on Help🛠 button below or hit /help 🙂
+👉🏻 **Add me in a group** and promote me as **Admin** to let me get in action!
 
-@sl_bot_zone Projects 🇱🇰
+❓ **WHAT ARE THE COMMANDS?** ❓
+Press /help to see **all the commands** and how they work!
 """
 
 HELP_STRINGS = f"""
@@ -89,21 +91,27 @@ You can donate to the original writer's of the Base code,
 Support them  [Youtube](https://www.youtube.com/channel/UCvYfJcTr8RY72dIapzMqFQA)
 """
 
-BUTTONS = [
+BUTTONS = [        
                     [
                         InlineKeyboardButton(
-                             text=" 💬Support Group",
+                            text="➕ Add Rose to a Group ➕",
+                            url="http://t.me/szrosebot?startgroup=true")
+                    
+                    ],
+                    [
+                        InlineKeyboardButton(
+                             text=" 👥 Group",
                              url="https://t.me/slbotzone"),
                          InlineKeyboardButton(
-                             text="🗣 Updates channel",
+                             text="📢 channel ",
                              url="https://t.me/sl_bot_zone")
                     ],
                     [
                         InlineKeyboardButton(
-                            text="🛠 Help ",
+                            text="🔧 Support  ",
                             callback_data="help_back"),
                          InlineKeyboardButton(
-                            text="🥺Support Me ",
+                            text="Information 💬",
                              url="https://www.youtube.com/channel/UCvYfJcTr8RY72dIapzMqFQA")        
                        
                     ],
@@ -115,12 +123,6 @@ BUTTONS = [
                             text="🚀 Free internet file ",
                             switch_inline_query_current_chat="")        
                        
-                    ],
-                    [
-                        InlineKeyboardButton(
-                            text="➕ Add Rose to your Group ➕",
-                            url="http://t.me/szrosebot?startgroup=true")
-                    
                     ],
             ]
 
