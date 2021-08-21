@@ -97,7 +97,7 @@ BUTTONS = [
                             callback_data="help_back"),
                          InlineKeyboardButton(
                             text="❗️𝐈𝐧𝐟𝐨 & 𝐀𝐛𝐨𝐮𝐭 ♻️",
-                            callback_data="masha_")        
+                            callback_data="aboutmanu_")        
                        
                     ],
                     [
@@ -359,16 +359,17 @@ def help_button(update, context):
         else:
             query.message.edit_text(excp.message)
             LOGGER.exception("Exception in help buttons. %s", str(query.data))
+        
 
 @run_async
-def Masha_about_callback(update: Update, context: CallbackContext):
+def DewmiBot_about_callback(update: Update, context):
     query = update.callback_query
-    if query.data == "masha_":
+    if query.data == "aboutmanu_":
         query.message.edit_text(
             text=f""" 𝘾𝙇𝙄𝘾𝙆 𝘽𝙀𝙇𝙊𝙒 𝘽𝙐𝙏𝙏𝙊𝙉 𝙁𝙊𝙍 𝙆𝙉𝙊𝙒 𝙈𝙊𝙍𝙀 𝘼𝘽𝙊𝙐𝙏 𝙈𝙀 📱 𝑨𝒏𝒅 𝒎𝒐𝒓𝒆 """,
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
-            reply_markup=InlineKeyboardMarkup[           
+            reply_markup=InlineKeyboardMarkup(          
                     [
                         InlineKeyboardButton(
                             text="⚡️ 𝐃𝐞𝐯𝐞𝐥𝐨𝐩𝐞𝐫",
@@ -393,53 +394,14 @@ def Masha_about_callback(update: Update, context: CallbackContext):
                             callback_data="masha_back")
                     
                     ],
-            ]
-    elif query.data == "masha_back":
+            )
+    elif query.data == "aboutmanu_back":
         query.message.edit_text(
                 PM_START_TEXT,
                 reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
                 timeout=60,
                 disable_web_page_preview=False,
-        )
-        
-@run_async
-def DewmiBot_about_callback(update, context):
-    query = update.callback_query
-    if query.data == "aboutmanu_":
-        query.message.edit_text(
-            text=f"👋 Hi again!  The name's {dispatcher.bot.first_name} is a Powerful BOT to Make Your Groups Secured and Organized Developed by [You](https://t.me/supunma)"
-            f"\n\n -Join [SL bot zone ](https://t.me/slbotzone) To Keep Yourself Updated About {dispatcher.bot.first_name}"
-            f"\n\n -I have the normal GROUP MANAGING functions like flood control, a warning system etc but I mainly have the advanced and handy Antispam system and the SIBYL banning system which safegaurds and helps your group from spammers."
-            f"\n\n -I Can Manage Your Groups Smoothly, With Some Special Features."
-            f"\n\n[🤖](https://telegra.ph/file/14e7d126eb01b0e49dc93.jpg) You Can Know More About Me By Clicking The Below Buttons.",
-            parse_mode=ParseMode.MARKDOWN,
-            disable_web_page_preview=True,
-            reply_markup=InlineKeyboardMarkup(
-                [
-                    [
-                        InlineKeyboardButton(
-                            text="How To Use Me", callback_data="aboutmanu_howto"
-                        ),
-                        InlineKeyboardButton(
-                            text="T & C", callback_data="aboutmanu_tac"
-                        ),
-                    ],
-                    [
-                        InlineKeyboardButton(
-                            text="Help & Commands ❔", callback_data="help_back"
-                        )
-                    ],
-                    [InlineKeyboardButton(text="Back", callback_data="aboutmanu_back")],
-                ]
-            ),
-        )
-    elif query.data == "aboutmanu_back":
-        query.message.edit_text(
-                PM_START_TEXT,
-                reply_markup=InlineKeyboardMarkup(BUTTONS),
-                parse_mode=ParseMode.MARKDOWN,
-                timeout=60,
         )
 
     elif query.data == "aboutmanu_howto":
