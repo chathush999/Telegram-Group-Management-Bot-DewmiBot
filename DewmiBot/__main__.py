@@ -61,23 +61,22 @@ from DewmiBot.modules.helper_funcs.misc import paginate_modules
 from DewmiBot.modules.helper_funcs.readable_time import get_readable_time
 
 PM_START_TEXT = """
-**Hi**{message.from_user.mention}
+𝙃𝙚𝙮 𝙩𝙝𝙚𝙧𝙚! 𝙈𝙮 𝙣𝙖𝙢𝙚 𝙄𝙨 **Rose bot 🌹**. 
 
-Rose bot(http://t.me/szrosebot) is **the most complete** Bot to help you **manage** your 
-groups easily and **safely!** 
+𝙄 𝙘𝙖𝙣 𝙝𝙚𝙡𝙥 𝙢𝙖𝙣𝙖𝙜𝙚 𝙮𝙤𝙪𝙧 𝙜𝙧𝙤𝙪𝙥𝙨 𝙬𝙞𝙩𝙝 𝙪𝙨𝙚𝙛𝙪𝙡 𝙛𝙚𝙖𝙩𝙪𝙧𝙚𝙨, 𝙛𝙚𝙚𝙡 𝙛𝙧𝙚𝙚 𝙩𝙤 𝙖𝙙𝙙 𝙢𝙚 𝙩𝙤 𝙮𝙤𝙪𝙧 𝙜𝙧𝙤𝙪𝙥𝙨!
 
-👉🏻 **Add me in a group** and promote me as **Admin** to let me get in action!
+𝗽𝗿𝗼𝗺𝗼𝘁𝗲 𝗺𝗲 𝗮𝘀 **𝗔𝗱𝗺𝗶𝗻** 𝘁𝗼 𝗹𝗲𝘁 𝗺𝗲 𝗴𝗲𝘁 𝗶𝗻 𝗮𝗰𝘁𝗶𝗼𝗻!
 
-❓ **WHAT ARE THE COMMANDS?** ❓
-Press /help to see **all the commands** and how they work!
+❓ **𝗪𝗛𝗔𝗧 𝗔𝗥𝗘 𝗧𝗛𝗘 𝗖𝗢𝗠𝗠𝗔𝗡𝗗𝗦?** ❓
+𝗣𝗿𝗲𝘀𝘀 `/𝗵𝗲𝗹𝗽` 𝘁𝗼 𝘀𝗲𝗲 **𝗮𝗹𝗹 𝘁𝗵𝗲 𝗰𝗼𝗺𝗺𝗮𝗻𝗱𝘀** 𝗮𝗻𝗱 𝗵𝗼𝘄 𝘁𝗵𝗲𝘆 𝘄𝗼𝗿𝗸!
 """
 
 HELP_STRINGS = f"""
 *Rose Help Menu*
 
-I'm Rose bot 🇱🇰
+𝕴'𝖒 𝕽𝖔𝖘𝖊 𝖇𝖔𝖙 🇱🇰
 
-The following functions will helpful to you to manage your group🙂
+𝑻𝒉𝒆 𝒇𝒐𝒍𝒍𝒐𝒘𝒊𝒏𝒈 𝒇𝒖𝒏𝒄𝒕𝒊𝒐𝒏𝒔 𝒘𝒊𝒍𝒍 𝒉𝒆𝒍𝒑𝒇𝒖𝒍 𝒕𝒐 𝒚𝒐𝒖 𝒕𝒐 𝒎𝒂𝒏𝒂𝒈𝒆 𝒚𝒐𝒖𝒓 𝒈𝒓𝒐𝒖𝒑🙂
 
 """.format(
     dispatcher.bot.first_name,
@@ -86,43 +85,34 @@ The following functions will helpful to you to manage your group🙂
 
 
 DONATE_STRING = """
-Heya, glad to hear you want to donate!
-You can donate to the original writer's of the Base code,
-Support them  [Youtube](https://www.youtube.com/channel/UCvYfJcTr8RY72dIapzMqFQA)
+𝑯𝒆𝒚𝒂, 𝒈𝒍𝒂𝒅 𝒕𝒐 𝒉𝒆𝒂𝒓 𝒚𝒐𝒖 𝒘𝒂𝒏𝒕 𝒕𝒐 𝒅𝒐𝒏𝒂𝒕𝒆!
+𝒀𝒐𝒖 𝒄𝒂𝒏 𝒅𝒐𝒏𝒂𝒕𝒆 𝒕𝒐 𝒕𝒉𝒆 𝒐𝒓𝒊𝒈𝒊𝒏𝒂𝒍 𝒘𝒓𝒊𝒕𝒆𝒓'𝒔 𝒐𝒇 𝒕𝒉𝒆 𝑩𝒂𝒔𝒆 𝒄𝒐𝒅𝒆,
+𝑺𝒖𝒑𝒑𝒐𝒓𝒕 𝒕𝒉𝒆𝒎 [Youtube](https://www.youtube.com/channel/UCvYfJcTr8RY72dIapzMqFQA)
 """
 
-BUTTONS = [        
+BUTTONS = [           
                     [
                         InlineKeyboardButton(
-                            text="➕ Add Rose to a Group ➕",
-                            url="http://t.me/szrosebot?startgroup=true")
-                    
-                    ],
-                    [
-                        InlineKeyboardButton(
-                             text=" 👥 Group",
-                             url="https://t.me/slbotzone"),
-                         InlineKeyboardButton(
-                             text="📢 channel ",
-                             url="https://t.me/sl_bot_zone")
-                    ],
-                    [
-                        InlineKeyboardButton(
-                            text="🔧 Support  ",
+                            text="❓𝗖𝗼𝗺𝗺𝗮𝗻𝗱 𝗛𝗲𝗹𝗽 ❗️",
                             callback_data="help_back"),
                          InlineKeyboardButton(
-                            text="Information 💬",
-                             url="https://www.youtube.com/channel/UCvYfJcTr8RY72dIapzMqFQA")        
+                            text="❗️𝐈𝐧𝐟𝐨 & 𝐀𝐛𝐨𝐮𝐭 ♻️",
+                            callback_data="masha_")        
                        
                     ],
                     [
                         InlineKeyboardButton(
-                            text="⚡️ Developer ",
-                            url= "http://t.me/supunma"),
+                             text=" 👥 𝐒𝐔𝐏𝐏𝐎𝐑𝐓 𝐆𝐑𝐎𝐔𝐏",
+                             url="https://t.me/slbotzone"),
                          InlineKeyboardButton(
-                            text="🚀 Free internet file ",
-                            switch_inline_query_current_chat="")        
-                       
+                             text="📢 𝐜𝐡𝐚𝐧𝐧𝐞𝐥 ",
+                             url="https://t.me/sl_bot_zone")
+                    ],                 
+                    [
+                        InlineKeyboardButton(
+                            text="➕️ 𝐀𝐃𝐃 𝐌𝐄 𝐓𝐎 𝐘𝐎𝐔𝐑 𝐆𝐑𝐎𝐔𝐏 ➕️",
+                            url="http://t.me/szrosebot?startgroup=true")
+                    
                     ],
             ]
 
@@ -370,7 +360,49 @@ def help_button(update, context):
             query.message.edit_text(excp.message)
             LOGGER.exception("Exception in help buttons. %s", str(query.data))
 
-
+@run_async
+def Masha_about_callback(update: Update, context: CallbackContext):
+    query = update.callback_query
+    if query.data == "masha_":
+        query.message.edit_text(
+            text=f""" 𝘾𝙇𝙄𝘾𝙆 𝘽𝙀𝙇𝙊𝙒 𝘽𝙐𝙏𝙏𝙊𝙉 𝙁𝙊𝙍 𝙆𝙉𝙊𝙒 𝙈𝙊𝙍𝙀 𝘼𝘽𝙊𝙐𝙏 𝙈𝙀 📱 𝑨𝒏𝒅 𝒎𝒐𝒓𝒆 """,
+            parse_mode=ParseMode.MARKDOWN,
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup[           
+                    [
+                        InlineKeyboardButton(
+                            text="⚡️ 𝐃𝐞𝐯𝐞𝐥𝐨𝐩𝐞𝐫",
+                            url= "http://t.me/supunma"),
+                         InlineKeyboardButton(
+                            text="𝐬𝐮𝐩𝐩𝐨𝐫𝐭 𝐦𝐞🥺",
+                             url="https://www.youtube.com/channel/UCvYfJcTr8RY72dIapzMqFQA")        
+                       
+                    ],
+                    [
+                        InlineKeyboardButton(
+                            text="🚀 𝐅𝐫𝐞𝐞 𝐢𝐧𝐭𝐞𝐫𝐧𝐞𝐭 𝐂𝐡𝐚𝐧𝐧𝐞𝐥 ",
+                            url= "https://t.me/FreeNetSL"),
+                         InlineKeyboardButton(
+                            text="🚀 𝐅𝐫𝐞𝐞 𝐢𝐧𝐭𝐞𝐫𝐧𝐞𝐭 𝐟𝐢𝐥𝐞",
+                            switch_inline_query_current_chat="")        
+                       
+                    ], 
+                    [
+                        InlineKeyboardButton(
+                            text="🔙 Back",
+                            callback_data="masha_back")
+                    
+                    ],
+            ]
+    elif query.data == "masha_back":
+        query.message.edit_text(
+                PM_START_TEXT,
+                reply_markup=InlineKeyboardMarkup(buttons),
+                parse_mode=ParseMode.MARKDOWN,
+                timeout=60,
+                disable_web_page_preview=False,
+        )
+        
 @run_async
 def DewmiBot_about_callback(update, context):
     query = update.callback_query
