@@ -8,7 +8,7 @@ from telegram.ext import CallbackContext, run_async
 from tswift import Song
 from telegram.error import BadRequest
 
-import DewmiBot.modules.fun_strings as fun_strings
+import DewmiBot.modules.funs as funs
 from DewmiBot import dispatcher
 from DewmiBot.modules.disable import DisableAbleCommandHandler
 from DewmiBot.modules.helper_funcs.alternate import send_message, typing_action
