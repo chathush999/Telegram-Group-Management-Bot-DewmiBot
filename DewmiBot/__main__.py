@@ -89,32 +89,27 @@ DONATE_STRING = """
 𝑺𝒖𝒑𝒑𝒐𝒓𝒕 𝒕𝒉𝒆𝒎 [Youtube](https://www.youtube.com/channel/UCvYfJcTr8RY72dIapzMqFQA)
 """
 
-BUTTONS = [           
-                    [
-                        InlineKeyboardButton(
-                            text="❓𝗖𝗼𝗺𝗺𝗮𝗻𝗱 𝗛𝗲𝗹𝗽 ❗️",
-                            callback_data="help_back"),
-                         InlineKeyboardButton(
-                            text="❗️𝐈𝐧𝐟𝐨 & 𝐀𝐛𝐨𝐮𝐭 ♻️",
-                            callback_data="aboutmanu_")        
-                       
-                    ],
-                    [
-                        InlineKeyboardButton(
-                             text=" 👥 𝐒𝐔𝐏𝐏𝐎𝐑𝐓 𝐆𝐑𝐎𝐔𝐏",
-                             url="https://t.me/slbotzone"),
-                         InlineKeyboardButton(
-                             text="📢 𝐜𝐡𝐚𝐧𝐧𝐞𝐥 ",
-                             url="https://t.me/sl_bot_zone")
-                    ],                 
-                    [
-                        InlineKeyboardButton(
-                            text="➕️ 𝐀𝐃𝐃 𝐌𝐄 𝐓𝐎 𝐘𝐎𝐔𝐑 𝐆𝐑𝐎𝐔𝐏 ➕️",
-                            url="http://t.me/szrosebot?startgroup=true")
-                    
-                    ],
-            ]
-
+BUTTONS = [
+    [
+        InlineKeyboardButton(
+            text="➕️ 𝐀𝐃𝐃 𝐌𝐄 𝐓𝐎 𝐘𝐎𝐔𝐑 𝐆𝐑𝐎𝐔𝐏 ➕️", url="http://t.me/szrosebot?startgroup=true"),
+    ],
+    [
+        InlineKeyboardButton(text="𝐌𝐨𝐫𝐞", callback_data="aboutmanu_"),
+        InlineKeyboardButton(
+            text="💬 𝐒𝐔𝐏𝐏𝐎𝐑𝐓", url=f"https://t.me/slbotzone"
+        ),
+    ],
+    [
+        InlineKeyboardButton(text="📢 𝐜𝐡𝐚𝐧𝐧𝐞𝐥 ", url=f"https://t.me/HexzyLogs"),
+        InlineKeyboardButton(
+            text="❗️𝐈𝐧𝐟𝐨 & 𝐀𝐛𝐨𝐮𝐭 ♻️", callback_data="aboutmanu_"
+        ),
+    ],
+    [
+        InlineKeyboardButton(text=" ❗️ 𝗛𝗲𝗹𝗽 & 𝗖𝗼𝗺𝗺𝗮𝗻𝗱 ❓", callback_data="help_back"),
+    ],
+]
 IMPORTED = {}
 MIGRATEABLE = []
 HELPABLE = {}
