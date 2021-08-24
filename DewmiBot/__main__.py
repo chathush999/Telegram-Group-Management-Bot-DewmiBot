@@ -219,8 +219,9 @@ def start(update: Update, context: CallbackContext):
                 else:
                     send_settings(match.group(1), update.effective_user.id, True)
 
-           elif args[0][1:].isdigit() and "rules" in IMPORTED:
+            elif args[0][1:].isdigit() and "rules" in IMPORTED:
                 IMPORTED["rules"].send_rules(update, args[0], from_pm=True)
+                
             update.effective_message.reply_sticker(
                 STICKER,
                 timeout=60,
