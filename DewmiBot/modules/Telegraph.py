@@ -40,8 +40,16 @@ async def telegraph(client, message):
         await message.reply(message, text=document)
     else:
         await message.reply(
-            f"**Uploaded To Telegraph!\n\n👉 https://telegra.ph{response[0]}**",
+            f"**Uploaded To Telegraph!\n\n👉 https://telegra.ph{response[0]}\n\nUploaded by @szrosebot🇱🇰**",
             disable_web_page_preview=True,
         )
     finally:
         os.remove(download_location)
+       
+ __help__ = """
+@szrosebot🇱🇰
+** Telegraph ** 
+ ❍ /telegraph - Get Telegraph Link Of Replied Media
+ I can upload files to Telegraph
+"""
+__mod_name__ = "Telegraph 📭"   
