@@ -70,8 +70,6 @@ PM_START_TEXT = """
 𝗣𝗿𝗲𝘀𝘀  /help   𝘁𝗼 𝘀𝗲𝗲 **𝗮𝗹𝗹 𝘁𝗵𝗲 𝗰𝗼𝗺𝗺𝗮𝗻𝗱𝘀** 𝗮𝗻𝗱 𝗵𝗼𝘄 𝘁𝗵𝗲𝘆 𝘄𝗼𝗿𝗸!
 """
 
-STICKER = "CAACAgUAAxkBAAI7-WEkfgsvnXXW06OMKriY85I-DUZ4AAIRAwACHUmhVNYuprqSm_zGIAQ"
-
 HELP_STRINGS = f"""
 *Rose Help Menu*
 
@@ -222,14 +220,12 @@ def start(update: Update, context: CallbackContext):
             elif args[0][1:].isdigit() and "rules" in IMPORTED:
                 IMPORTED["rules"].send_rules(update, args[0], from_pm=True)
                 
-            update.effective_message.reply_sticker(
-                STICKER,
-                timeout=60,
-            )
+        else:
             update.effective_message.reply_text(
                 PM_START_TEXT,
-                reply_markup=InlineKeyboardMarkup(buttons),
+                reply_markup=InlineKeyboardMarkup(BUTTONS),
                 parse_mode=ParseMode.MARKDOWN,
+                timeout=60, 
             )
     else:
         update.effective_message.reply_text(
