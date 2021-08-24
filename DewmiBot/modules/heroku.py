@@ -157,8 +157,8 @@ async def dyno_usage(dyno):
     await asyncio.sleep(1.5)
 
     return await die.edit(
-        "**Dyno Usage**:\n\n"
-        f" -> `Dyno usage for`  **{HEROKU_APP_NAME}**:\n"
+        "**Dyno Usage 📊**:\n\n"
+        f" -> `Dyno usage for`  **Rose bot **:\n"
         f"     •  `{AppHours}`**h**  `{AppMinutes}`**m**  "
         f"**|**  [`{AppPercentage}`**%**]"
         "\n\n"
