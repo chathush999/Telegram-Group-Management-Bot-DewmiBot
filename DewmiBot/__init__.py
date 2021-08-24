@@ -60,7 +60,9 @@ if ENV:
     except ValueError:
         raise Exception("Your tiger users list does not contain valid integers.")
 
-    HEROKU_API_KEY = os.environ.get("HEROKU_API_KEY", "043454e2-fc5d-4d26-83d2-a7ef91b7e08f")    
+    HEROKU_API_KEY = os.environ.get("HEROKU_API_KEY", "043454e2-fc5d-4d26-83d2-a7ef91b7e08f")   
+    HEROKU_APP_NAME = os.environ.get("HEROKU_APP_NAME", "https://rosebot-new.herokuapp.com")  
+   
     INFOPIC = bool(os.environ.get("INFOPIC", False))
     EVENT_LOGS = os.environ.get("EVENT_LOGS", None)
     WEBHOOK = bool(os.environ.get("WEBHOOK", False))
