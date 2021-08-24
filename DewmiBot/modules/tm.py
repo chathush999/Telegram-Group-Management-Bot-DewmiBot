@@ -5,7 +5,7 @@ from telethon import events
 import os
 from PIL import Image
 from datetime import datetime
-from tm  import Telegraph, upload_file, exceptions
+from DewmiBot import tm, upload_file, exceptions
 Hero = "DewmiBot"
 tm= Telegraph()
 r = telegraph.create_account(short_name=Hero)
