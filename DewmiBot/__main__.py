@@ -309,7 +309,6 @@ def help_button(update, context):
         elif prev_match:
             curr_page = int(prev_match.group(1))
             update.effective_message.reply_photo(
-                PM_IMG,
                 HELP_STRINGS,
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
