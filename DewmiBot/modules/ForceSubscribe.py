@@ -60,7 +60,7 @@ def _onUnMuteRequest(client, cb):
             else:
                 client.answer_callback_query(
                     cb.id,
-                    text="❗ Warning! Don't press the button when you cn talk.",
+                    text="❗ Warning! Don't press the button when you can talk.",
                     show_alert=True,
                 )
 
@@ -107,7 +107,7 @@ def _check_member(client, message):
                     )
                 except ChatAdminRequired:
                     sent_message.edit(
-                        "❗ **DewmiBot is not admin here..**\n__Give me ban permissions and retry.. \n#Ending FSub...__"
+                        "❗ **RoseBot is not admin here..**\n__Give me ban permissions and retry.. \n#Ending FSub...__"
                     )
 
             except ChatAdminRequired:
