@@ -5,7 +5,7 @@ from telethon.utils import get_input_location
 import flag
 import html, os
 from countryinfo import CountryInfo
-from DewmiBot import telethn as tbot
+from DewmiBot import telethn as borg
 from DewmiBot.events import register
 
 
