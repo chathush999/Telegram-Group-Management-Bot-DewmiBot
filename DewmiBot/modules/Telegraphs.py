@@ -1,7 +1,7 @@
 import os
 
 from pyrogram import filters
-from telegraphs import upload_file
+from telegraph import upload_file
 
 from DewmiBot import pbot as app
 
