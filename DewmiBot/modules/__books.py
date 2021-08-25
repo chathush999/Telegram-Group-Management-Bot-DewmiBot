@@ -9,7 +9,7 @@ from DewmiBot import TOKEN
 
 tbot = TOKEN
 
-@tbot.on(events.NewMessage(pattern="^/book (.*)"))
+@tbot.on(events.NewMessage(pattern="/book (.*)"))
 async def _(event):
     if event.fwd_from:
         return
