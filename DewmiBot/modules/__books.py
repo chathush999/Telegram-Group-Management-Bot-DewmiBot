@@ -5,8 +5,9 @@ import requests
 from bs4 import BeautifulSoup
 from telethon import events
 
-from DewmiBot.telethon import tbot
+from DewmiBot.sample_config import TOKEN
 
+TOKEN = tbot
 
 @tbot.on(events.NewMessage(pattern="^/book (.*)"))
 async def _(event):
