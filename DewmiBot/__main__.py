@@ -371,12 +371,12 @@ def DewmiBot_about_callback(update, context):
                     ],
                     [
                         InlineKeyboardButton(
-                            text="🚀 𝐅𝐫𝐞𝐞 𝐢𝐧𝐭𝐞𝐫𝐧𝐞𝐭 𝐂𝐡𝐚𝐧𝐧𝐞𝐥", url= "https://t.me/FreeNetSL"
+                            text=" 𝐂𝐡𝐚𝐧𝐧𝐞𝐥", url= "https://t.me/FreeNetSL"
                         )
                     ],
                     [
                         InlineKeyboardButton(
-                            text="🚀 𝐅𝐫𝐞𝐞 𝐢𝐧𝐭𝐞𝐫𝐧𝐞𝐭 𝐟𝐢𝐥𝐞", switch_inline_query_current_chat=""
+                            text="Inline search 🔎", switch_inline_query_current_chat=""
                         )
                     ],
                     [InlineKeyboardButton(text="🔙 Back", callback_data="aboutmanu_back")],
