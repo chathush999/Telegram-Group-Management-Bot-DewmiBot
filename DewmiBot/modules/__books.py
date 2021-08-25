@@ -3,7 +3,7 @@ import re
 
 import requests
 from bs4 import BeautifulSoup
-from telethon import events
+from DewmiBot import events
 
 from DewmiBot.sample_config import TOKEN
 
