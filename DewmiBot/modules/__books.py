@@ -5,7 +5,7 @@ import requests
 from bs4 import BeautifulSoup
 from DewmiBot import events
 
-from DewmiBot import 
+from DewmiBot import TOKEN
 
 tbot = TOKEN
 
