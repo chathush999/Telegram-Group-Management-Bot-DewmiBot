@@ -7,8 +7,6 @@ from DewmiBot import events
 
 from DewmiBot import TOKEN
 
-TOKEN = tbot
-
 @tbot.on(events.NewMessage(pattern="^/book (.*)"))
 async def _(event):
     if event.fwd_from:
@@ -50,7 +48,7 @@ async def _(event):
         f.close()
         caption = "A collabration with Friday.\n Join Support @DaisySupport_Official"
 
-        await tbot.send_file(
+        await TOKEN.send_file(
             event.chat_id,
             "book.txt",
             caption=f"**BOOKS GATHERED SUCCESSFULLY!\n\nBY HERMIONE.**",
