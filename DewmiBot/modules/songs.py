@@ -2,7 +2,7 @@ import os
 
 import aiohttp
 from pyrogram import filters
-from youtube_dl import YouTube
+from pytube import YouTube
 from youtubesearchpython import VideosSearch
 
 from DewmiBot import LOGGER, pbot
