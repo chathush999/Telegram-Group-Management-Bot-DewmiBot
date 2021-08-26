@@ -33,7 +33,7 @@ async def _(event):
         return
     input_str = event.pattern_match.group(1)
     lool = 0
-    KkK = await event.reply("searching for the book...")
+    KkK = await event.reply("`searching for the book...`")
     lin = "https://b-ok.cc/s/"
     text = input_str
     link = lin + text
@@ -71,7 +71,7 @@ async def _(event):
         await tbot.send_file(
             event.chat_id,
             "book.txt",
-            caption=f"**BOOKS GATHERED SUCCESSFULLY!\n\nBY ANKI VECTOR. JOIN THE SUPPORT @slbotzone.**",
+            caption=f"**BOOKS GATHERED SUCCESSFULLY!\n\nBY @szrosebot🇱🇰. JOIN THE SUPPORT @sl_bot_zone.**",
         )
         os.remove("book.txt")
         await KkK.delete()
