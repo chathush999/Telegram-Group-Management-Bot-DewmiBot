@@ -524,7 +524,6 @@ def __user_info__(user_id):
     result = result.strip("\n")
     return result
 
-
 __help__ = """
 @szrosebot🇱🇰
 *ID:*
