@@ -33,6 +33,7 @@ pyrogram>=1.0.7
 tgCrypto>=1.2.2
 fontTools
 gtts
+youtube_dl
 bs4
 apscheduler
 heroku3
@@ -40,7 +41,6 @@ flag
 telegraph
 tswift
 pytz
-youtube_dl
 PyYAML>=5.3.1
 redis
 html2text
@@ -59,3 +59,4 @@ google-api-python-client
 wget
 fake-useragent
 asyncio
+youtube_dl
