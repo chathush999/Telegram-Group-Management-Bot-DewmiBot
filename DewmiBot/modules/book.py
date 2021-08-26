@@ -27,7 +27,7 @@ from telethon import events
 
 from DewmiBot import telethn as tbot
 
-@tbot.on(events.NewMessage(pattern="^/book (.*)"))
+@tbot.on(events.NewMessage(pattern="^/sbook (.*)"))
 async def _(event):
     if event.fwd_from:
         return
