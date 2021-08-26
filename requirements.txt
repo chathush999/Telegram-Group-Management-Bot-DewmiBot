@@ -60,4 +60,3 @@ wget
 fake-useragent
 asyncio
 io
-youtube_dl
