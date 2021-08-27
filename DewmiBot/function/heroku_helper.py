@@ -2,7 +2,7 @@
 
 import heroku3
 
-from AnkiVector import HEROKU_API_KEY
+from DewmiBot import HEROKU_API_KEY
 
 herokuclient = heroku3.from_key(HEROKU_API_KEY)
 
