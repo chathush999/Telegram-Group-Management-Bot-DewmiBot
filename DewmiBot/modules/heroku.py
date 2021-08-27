@@ -177,8 +177,8 @@ async def restart_bot(dyno):
     else:
         return await dyno.reply("Rosebot will be restarted..."
          )
-    args = [.executable, "-m", "DewmiBot"]
-    os.execl(.executable, *args)
+    args = [sys.executable, "-m", "DewmiBot"]
+    os.execl(sys.executable, *args)
 
 
 @register(pattern="^/update$")
