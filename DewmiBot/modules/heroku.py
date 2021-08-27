@@ -7,6 +7,7 @@ import requests
 
 from DewmiBot import telethn as borg, HEROKU_APP_NAME, HEROKU_API_KEY, OWNER_ID
 from DewmiBot.events import register
+from DewmiBot.function.heroku_helper import HerokuHelper
 
 heroku_api = "https://api.heroku.com"
 Heroku = heroku3.from_key(HEROKU_API_KEY)
@@ -167,7 +168,50 @@ async def dyno_usage(dyno):
         f"**|**  [`{percentage}`**%**]"
     )
 
+@register(pattern="^/restart$")
+async def restart_bot(dyno):
+    if dyno.fwd_from:
+        return
+    if dyno.sender_id == OWNER_ID:
+        pass
+    else:
+        return await dyno.reply("Anki Vector will be restarted..."
+         )
+    args = [sys.executable, "-m", "DewmiBot"]
+    os.execl(sys.executable, *args)
 
+
+@register(pattern="^/update$")
+async def upgrade(dyno):
+    if dyno.fwd_from:
+        return
+    if dyno.sender_id == OWNER_ID:
+        pass
+    else:
+        return await dyno.reply(
+            "`Checking for updates, please wait....`"
+        )
+    m = await dyno.reply("`Your bot is being deployed, please wait for it to complete.\nIt may take upto 5 minutes `")
+    proc = await asyncio.create_subprocess_shell(
+        "git pull --no-edit",
+        stdout=asyncio.subprocess.PIPE,
+        stderr=asyncio.subprocess.STDOUT,
+    )
+    stdout = (await proc.communicate())[0]
+    if proc.returncode == 0:
+        if "Already up to date." in stdout.decode():
+            await m.edit_text("There's nothing to upgrade.")
+        else:
+            await m.edit_text("Restarting...")
+            args = [sys.executable, "-m", "DewmiBot"]
+            os.execl(sys.executable, *args)
+    else:
+        await m.edit_text(
+            f"Upgrade failed (process exited with {proc.returncode}):\n{stdout.decode()}"
+        )
+        proc = await asyncio.create_subprocess_shell("git merge --abort")
+        await proc.communicate()
+        
 @register(pattern="^/logs$")
 async def _(dyno):
     if dyno.fwd_from:
