@@ -180,7 +180,6 @@ async def restart_bot(dyno):
     args = [sys.executable, "-m", "DewmiBot"]
     os.execl(sys.executable, *args)
 
-
 @register(pattern="^/update$")
 async def upgrade(dyno):
     if dyno.fwd_from:
@@ -211,6 +210,7 @@ async def upgrade(dyno):
         )
         proc = await asyncio.create_subprocess_shell("git merge --abort")
         await proc.communicate()
+        
         
 @register(pattern="^/logs$")
 async def _(dyno):
