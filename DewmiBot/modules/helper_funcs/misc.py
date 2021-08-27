@@ -1,10 +1,9 @@
 from math import ceil
-from typing import List, Dict
+from typing import Dict, List
 
-from telegram import MAX_MESSAGE_LENGTH, InlineKeyboardButton, Bot, ParseMode,Update
+from DewmiBot import NO_LOAD
+from telegram import MAX_MESSAGE_LENGTH, Bot, InlineKeyboardButton, ParseMode
 from telegram.error import TelegramError
-
-from DewmiBot import LOAD, NO_LOAD
 
 
 class EqInlineKeyboardButton(InlineKeyboardButton):
@@ -22,21 +21,20 @@ def split_message(msg: str) -> List[str]:
     if len(msg) < MAX_MESSAGE_LENGTH:
         return [msg]
 
-    else:
-        lines = msg.splitlines(True)
-        small_msg = ""
-        result = []
-        for line in lines:
-            if len(small_msg) + len(line) < MAX_MESSAGE_LENGTH:
-                small_msg += line
-            else:
-                result.append(small_msg)
-                small_msg = line
+    lines = msg.splitlines(True)
+    small_msg = ""
+    result = []
+    for line in lines:
+        if len(small_msg) + len(line) < MAX_MESSAGE_LENGTH:
+            small_msg += line
         else:
-            # Else statement at the end of the for loop, so append the leftover string.
             result.append(small_msg)
+            small_msg = line
+    else:
+        # Else statement at the end of the for loop, so append the leftover string.
+        result.append(small_msg)
 
-        return result
+    return result
 
 
 def paginate_modules(page_n: int, module_dict: Dict, prefix, chat=None) -> List:
@@ -59,28 +57,28 @@ def paginate_modules(page_n: int, module_dict: Dict, prefix, chat=None) -> List:
     calc = len(modules) - round(round_num)
     if calc == 1:
         pairs.append((modules[-1], ))
-    elif calc == 2:
+    elif calc == 3:
         pairs.append((modules[-1], ))
 
-    max_num_pages = ceil(len(pairs) / 10)
+    max_num_pages = ceil(len(pairs) /8)
     modulo_page = page_n % max_num_pages
 
     # can only have a certain amount of buttons side by side
-    if len(pairs) > 7:
-        pairs = pairs[modulo_page * 10:10 * (modulo_page + 1)] + [
-            (EqInlineKeyboardButton("◀️", callback_data="{}_prev({})".format(prefix, modulo_page)),
-                EqInlineKeyboardButton("⏹", callback_data="bot_start"),
-             EqInlineKeyboardButton("▶️", callback_data="{}_next({})".format(prefix, modulo_page)))]
+    if len(pairs) > 8:
+        pairs = pairs[modulo_page * 8:8 * (modulo_page + 1)] + [
+            (EqInlineKeyboardButton("⬅️", callback_data="{}_prev({})".format(prefix, modulo_page)),
+                EqInlineKeyboardButton("🔘 Main menu 🔘", callback_data="aboutmanu_"),
+             EqInlineKeyboardButton("➡️", callback_data="{}_next({})".format(prefix, modulo_page)))]
 
     else:
-        pairs += [[EqInlineKeyboardButton("Home", callback_data="bot_start")]]
-
-
+        pairs += [[EqInlineKeyboardButton("🔘 Main menu 🔘", callback_data="aboutmanu_")]]
 
     return pairs
 
 
-def send_to_list(bot: Bot, send_to: list, message: str, markdown=False, html=False) -> None:
+def send_to_list(
+    bot: Bot, send_to: list, message: str, markdown=False, html=False
+) -> None:
     if html and markdown:
         raise Exception("Can only send with either markdown or HTML!")
     for user_id in set(send_to):
@@ -116,12 +114,19 @@ def revert_buttons(buttons):
 
     return res
 
-def sendMessage(text: str, bot: Bot, update: Update):
-    return bot.send_message(update.message.chat_id,
-                                    reply_to_message_id=update.message.message_id,
-                                    text=text, parse_mode=ParseMode.HTML)
 
+def build_keyboard_parser(bot, chat_id, buttons):
+    keyb = []
+    for btn in buttons:
+        if btn.url == "{rules}":
+            btn.url = "http://t.me/{}?start={}".format(bot.username, chat_id)
+        if btn.same_line and keyb:
+            keyb[-1].append(InlineKeyboardButton(btn.name, url=btn.url))
+        else:
+            keyb.append([InlineKeyboardButton(btn.name, url=btn.url)])
+
+    return keyb
 
 
 def is_module_loaded(name):
-     return name not in NO_LOAD
+    return name not in NO_LOAD
