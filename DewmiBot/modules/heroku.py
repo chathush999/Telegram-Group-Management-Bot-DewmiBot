@@ -175,10 +175,10 @@ async def restart_bot(dyno):
     if dyno.sender_id == OWNER_ID:
         pass
     else:
-        return await dyno.reply("Anki Vector will be restarted..."
+        return await dyno.reply("Rosebot will be restarted..."
          )
-    args = [sys.executable, "-m", "DewmiBot"]
-    os.execl(sys.executable, *args)
+    args = [.executable, "-m", "DewmiBot"]
+    os.execl(.executable, *args)
 
 
 @register(pattern="^/update$")
@@ -191,7 +191,7 @@ async def upgrade(dyno):
         return await dyno.reply(
             "`Checking for updates, please wait....`"
         )
-    m = await dyno.reply("`Your bot is being deployed, please wait for it to complete.\nIt may take upto 5 minutes `")
+    m = await dyno.reply("**Your bot is being deployed, please wait for it to complete.\nIt may take upto 5 minutes **")
     proc = await asyncio.create_subprocess_shell(
         "git pull --no-edit",
         stdout=asyncio.subprocess.PIPE,
