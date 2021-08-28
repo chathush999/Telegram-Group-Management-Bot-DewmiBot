@@ -6,7 +6,7 @@ import requests
 from telethon import types
 from telethon.tl import functions
 
-from DewmiBot.sample_config import get_str_key
+from DewmiBot.sample_config import REM_BG_API_KEY
 from DewmiBot.events import register
 from DewmiBot import telethn as tbot
 
