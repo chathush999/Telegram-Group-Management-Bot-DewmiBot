@@ -2,7 +2,6 @@ import os
 import sys
 
 import yaml
-from envparse import env
 
 from DewmiBot.utils.logger import log
 
