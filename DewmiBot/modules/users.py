@@ -15,7 +15,7 @@ import DewmiBot.modules.sql.users_sql as sql
 from DewmiBot import dispatcher,DEV_USERS, LOGGER, OWNER_ID, dispatcher
 from DewmiBot.modules.helper_funcs.chat_status import dev_plus, sudo_plus
 from DewmiBot.modules.sql.users_sql import get_all_users
-
+#add dispatcher
 USERS_GROUP = 4
 CHAT_GROUP = 5
 DEV_AND_MORE = DEV_USERS.append(int(OWNER_ID))
