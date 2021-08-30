@@ -60,3 +60,4 @@ fake-useragent
 asyncio
 youtube_dl
 google_trans_new
+motor
