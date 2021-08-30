@@ -230,4 +230,4 @@ __help__ = """
  ❍ /carbon  text :  Create your logo with your name
  ❍ /pandalogo :  Create your logo with your name
  """
-__mod_name__ = "Logo Maker☮️"
+__mod_name__ = "Logo Maker"
