@@ -104,4 +104,4 @@ __help__ = """
  
 """
 
-__mod_name__ = "Purges💣 "
+__mod_name__ = "Purges"
