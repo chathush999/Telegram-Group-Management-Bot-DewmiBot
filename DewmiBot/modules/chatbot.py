@@ -1,184 +1,364 @@
-import html
+import re
 
-# AI module using Intellivoid's Coffeehouse API by @TheRealPhoenix
-from time import sleep, time
+import emoji
 
-from coffeehouse.api import API
-from coffeehouse.exception import CoffeeHouseError as CFError
-from coffeehouse.lydia import LydiaAI
-from telegram import Update
-from telegram.error import BadRequest, RetryAfter, Unauthorized
-from telegram.ext import (
-    CallbackContext,
-    CommandHandler,
-    Filters,
-    MessageHandler,
-    run_async,
+url = "https://ankivector1.p.rapidapi.com/get"
+import re
+
+import aiohttp
+
+# from google_trans_new import google_translator
+from googletrans import Translator as google_translator
+from pyrogram import filters
+
+from DewmiBot import BOT_ID
+from DewmiBot.helper_extra.aichat import add_chat, get_session, remove_chat
+from DewmiBot.function.inlinehelper import arq
+from DewmiBot.function.pluginhelpers import admins_only, edit_or_reply
+from DewmiBot import pbot as DewmiBot
+
+translator = google_translator()
+
+
+async def lunaQuery(query: str, user_id: int):
+    luna = await arq.luna(query, user_id)
+    return luna.result
+
+
+def extract_emojis(s):
+    return "".join(c for c in s if c in emoji.UNICODE_EMOJI)
+
+
+async def fetch(url):
+    try:
+        async with aiohttp.Timeout(10.0):
+            async with aiohttp.ClientSession() as session:
+                async with session.get(url) as resp:
+                    try:
+                        data = await resp.json()
+                    except:
+                        data = await resp.text()
+            return data
+    except:
+        print("AI response Timeout")
+        return
+
+
+DewmiBot_chats = []
+en_chats = []
+# AI Chat (C) 2020-2021 by @InukaAsith
+
+
+@DewmiBot.on_message(
+    filters.command("chatbot") & ~filters.edited & ~filters.bot & ~filters.private
 )
-from telegram.utils.helpers import mention_html
-
-import DewmiBot.modules.sql.chatbot_sql as sql
-from DewmiBot import AI_API_KEY, SUPPORT_CHAT, dispatcher
-from DewmiBot.modules.helper_funcs.chat_status import user_admin
-from DewmiBot.modules.helper_funcs.filters import CustomFilters
-from DewmiBot.modules.log_channel import gloggable
-
-CoffeeHouseAPI = API(AI_API_KEY)
-api_client = LydiaAI(CoffeeHouseAPI)
-
-
-@run_async
-@user_admin
-@gloggable
-def add_chat(update: Update, context: CallbackContext):
-    global api_client
-    chat = update.effective_chat
-    msg = update.effective_message
-    user = update.effective_user
-    is_chat = sql.is_chat(chat.id)
-    if chat.type == "private":
-        msg.reply_text("You can't enable AI in PM.")
-        return
-
-    if not is_chat:
-        ses = api_client.create_session()
-        ses_id = str(ses.id)
-        expires = str(ses.expires)
-        sql.set_ses(chat.id, ses_id, expires)
-        msg.reply_text("AI successfully enabled for this chat!")
-        message = (
-            f"<b>{html.escape(chat.title)}:</b>\n"
-            f"#AI_ENABLED\n"
-            f"<b>Admin:</b> {mention_html(user.id, html.escape(user.first_name))}\n"
+@admins_only
+async def hmm(_, message):
+    global ankivector_chats
+    if len(message.command) != 2:
+        await message.reply_text(
+            "I only recognize `/chatbot on` and /chatbot `off only`"
         )
-        return message
-    else:
-        msg.reply_text("AI is already enabled for this chat!")
-        return ""
-
-
-@run_async
-@user_admin
-@gloggable
-def remove_chat(update: Update, context: CallbackContext):
-    msg = update.effective_message
-    chat = update.effective_chat
-    user = update.effective_user
-    is_chat = sql.is_chat(chat.id)
-    if not is_chat:
-        msg.reply_text("AI isn't enabled here in the first place!")
-        return ""
-    else:
-        sql.rem_chat(chat.id)
-        msg.reply_text("AI disabled successfully!")
-        message = (
-            f"<b>{html.escape(chat.title)}:</b>\n"
-            f"#AI_DISABLED\n"
-            f"<b>Admin:</b> {mention_html(user.id, html.escape(user.first_name))}\n"
-        )
-        return message
-
-
-def check_message(context: CallbackContext, message):
-    reply_msg = message.reply_to_message
-
-    if message.text.lower() == "liza":
-        return True
-    if reply_msg:
-        if reply_msg.from_user.id == context.bot.get_me().id:
-            return True
-    else:
-        return False
-
-
-@run_async
-def chatbot(update: Update, context: CallbackContext):
-    global api_client
-    msg = update.effective_message
-    chat_id = update.effective_chat.id
-    is_chat = sql.is_chat(chat_id)
-    bot = context.bot
-    if not is_chat:
-        return
-    if msg.text and not msg.document:
-        if not check_message(context, msg):
+        message.continue_propagation()
+    status = message.text.split(None, 1)[1]
+    chat_id = message.chat.id
+    if status == "ON" or status == "on" or status == "On":
+        lel = await edit_or_reply(message, "`Processing...`")
+        lol = add_chat(int(message.chat.id))
+        if not lol:
+            await lel.edit("Rosebot AI Already Activated In This Chat")
             return
-        sesh, exp = sql.get_ses(chat_id)
-        query = msg.text
+        await lel.edit(
+            f"Rosebot AI Successfully Added For Users In The Chat {message.chat.id}"
+        )
+
+    elif status == "OFF" or status == "off" or status == "Off":
+        lel = await edit_or_reply(message, "`Processing...`")
+        Escobar = remove_chat(int(message.chat.id))
+        if not Escobar:
+            await lel.edit("Rosebot AI Was Not Activated In This Chat")
+            return
+        await lel.edit(
+            f"Rosebot AI Successfully Deactivated For Users In The Chat {message.chat.id}"
+        )
+
+    elif status == "EN" or status == "en" or status == "english":
+        if not chat_id in en_chats:
+            en_chats.append(chat_id)
+            await message.reply_text("English AI chat Enabled!")
+            return
+        await message.reply_text("AI Chat Is Already Disabled.")
+        message.continue_propagation()
+    else:
+        await message.reply_text(
+            "I only recognize `/chatbot on` and /chatbot `off only`"
+        )
+
+
+@DewmiBot.on_message(
+    filters.text
+    & filters.reply
+    & ~filters.bot
+    & ~filters.edited
+    & ~filters.via_bot
+    & ~filters.forwarded,
+    group=2,
+)
+async def hmm(client, message):
+    if not get_session(int(message.chat.id)):
+        return
+    if not message.reply_to_message:
+        return
+    try:
+        senderr = message.reply_to_message.from_user.id
+    except:
+        return
+    if senderr != BOT_ID:
+        return
+    msg = message.text
+    chat_id = message.chat.id
+    if msg.startswith("/") or msg.startswith("@"):
+        message.continue_propagation()
+    if chat_id in en_chats:
+        test = msg
+        test = test.replace("Rose bot", "Aco")
+        test = test.replace("Rose bot", "Aco")
+        response = await lunaQuery(
+            test, message.from_user.id if message.from_user else 0
+        )
+        response = response.replace("Aco", "Rose bot")
+        response = response.replace("aco", "Rose bot")
+
+        pro = response
         try:
-            if int(exp) < time():
-                ses = api_client.create_session()
-                ses_id = str(ses.id)
-                expires = str(ses.expires)
-                sql.set_ses(chat_id, ses_id, expires)
-                sesh, exp = sql.get_ses(chat_id)
-        except ValueError:
-            pass
-        try:
-            bot.send_chat_action(chat_id, action="typing")
-            rep = api_client.think_thought(sesh, query)
-            sleep(0.3)
-            msg.reply_text(rep, timeout=60)
+            await ankivector.send_chat_action(message.chat.id, "typing")
+            await message.reply_text(pro)
         except CFError:
-            pass
-            # bot.send_message(OWNER_ID,
-            #                 f"Chatbot error: {e} occurred in {chat_id}!")
+            return
 
+    else:
+        u = msg.split()
+        emj = extract_emojis(msg)
+        msg = msg.replace(emj, "")
+        if (
+            [(k) for k in u if k.startswith("@")]
+            and [(k) for k in u if k.startswith("#")]
+            and [(k) for k in u if k.startswith("/")]
+            and re.findall(r"\[([^]]+)]\(\s*([^)]+)\s*\)", msg) != []
+        ):
 
-@run_async
-def list_chatbot_chats(update: Update, context: CallbackContext):
-    chats = sql.get_all_chats()
-    text = "<b>AI-Enabled Chats</b>\n"
-    for chat in chats:
+            h = " ".join(filter(lambda x: x[0] != "@", u))
+            km = re.sub(r"\[([^]]+)]\(\s*([^)]+)\s*\)", r"", h)
+            tm = km.split()
+            jm = " ".join(filter(lambda x: x[0] != "#", tm))
+            hm = jm.split()
+            rm = " ".join(filter(lambda x: x[0] != "/", hm))
+        elif [(k) for k in u if k.startswith("@")]:
+
+            rm = " ".join(filter(lambda x: x[0] != "@", u))
+        elif [(k) for k in u if k.startswith("#")]:
+            rm = " ".join(filter(lambda x: x[0] != "#", u))
+        elif [(k) for k in u if k.startswith("/")]:
+            rm = " ".join(filter(lambda x: x[0] != "/", u))
+        elif re.findall(r"\[([^]]+)]\(\s*([^)]+)\s*\)", msg) != []:
+            rm = re.sub(r"\[([^]]+)]\(\s*([^)]+)\s*\)", r"", msg)
+        else:
+            rm = msg
+            # print (rm)
         try:
-            x = context.bot.get_chat(int(*chat))
-            name = x.title if x.title else x.first_name
-            text += f"• <code>{name}</code>\n"
-        except BadRequest:
-            sql.rem_chat(*chat)
-        except Unauthorized:
-            sql.rem_chat(*chat)
-        except RetryAfter as e:
-            sleep(e.retry_after)
-    update.effective_message.reply_text(text, parse_mode="HTML")
+            lan = translator.detect(rm)
+            lan = lan.lang
+        except:
+            return
+        test = rm
+        if not "en" in lan and not lan == "":
+            try:
+                test = translator.translate(test, dest="en")
+                test = test.text
+            except:
+                return
+        # test = emoji.demojize(test.strip())
+
+        test = test.replace("Rose bot", "Aco")
+        test = test.replace("Rose bot", "Aco")
+        response = await lunaQuery(
+            test, message.from_user.id if message.from_user else 0
+        )
+        response = response.replace("Aco", "Rose bot")
+        response = response.replace("aco", "Rose bot")
+        response = response.replace("Luna", "Rose bot")
+        response = response.replace("luna", "Rose bot")
+        pro = response
+        if not "en" in lan and not lan == "":
+            try:
+                pro = translator.translate(pro, dest=lan)
+                pro = pro.text
+            except:
+                return
+        try:
+            await ankivector.send_chat_action(message.chat.id, "typing")
+            await message.reply_text(pro)
+        except CFError:
+            return
 
 
-__help__ = f"""
+@DewmiBot.on_message(
+    filters.text & filters.private & ~filters.edited & filters.reply & ~filters.bot
+)
+async def inuka(client, message):
+    msg = message.text
+    if msg.startswith("/") or msg.startswith("@"):
+        message.continue_propagation()
+    u = msg.split()
+    emj = extract_emojis(msg)
+    msg = msg.replace(emj, "")
+    if (
+        [(k) for k in u if k.startswith("@")]
+        and [(k) for k in u if k.startswith("#")]
+        and [(k) for k in u if k.startswith("/")]
+        and re.findall(r"\[([^]]+)]\(\s*([^)]+)\s*\)", msg) != []
+    ):
+
+        h = " ".join(filter(lambda x: x[0] != "@", u))
+        km = re.sub(r"\[([^]]+)]\(\s*([^)]+)\s*\)", r"", h)
+        tm = km.split()
+        jm = " ".join(filter(lambda x: x[0] != "#", tm))
+        hm = jm.split()
+        rm = " ".join(filter(lambda x: x[0] != "/", hm))
+    elif [(k) for k in u if k.startswith("@")]:
+
+        rm = " ".join(filter(lambda x: x[0] != "@", u))
+    elif [(k) for k in u if k.startswith("#")]:
+        rm = " ".join(filter(lambda x: x[0] != "#", u))
+    elif [(k) for k in u if k.startswith("/")]:
+        rm = " ".join(filter(lambda x: x[0] != "/", u))
+    elif re.findall(r"\[([^]]+)]\(\s*([^)]+)\s*\)", msg) != []:
+        rm = re.sub(r"\[([^]]+)]\(\s*([^)]+)\s*\)", r"", msg)
+    else:
+        rm = msg
+        # print (rm)
+    try:
+        lan = translator.detect(rm)
+        lan = lan.lang
+    except:
+        return
+    test = rm
+    if not "en" in lan and not lan == "":
+        try:
+            test = translator.translate(test, dest="en")
+            test = test.text
+        except:
+            return
+
+    # test = emoji.demojize(test.strip())
+
+    # Kang with the credits bitches @InukaASiTH
+    test = test.replace("Rose bot", "Aco")
+    test = test.replace("Rose bot", "Aco")
+
+    response = await lunaQuery(test, message.from_user.id if message.from_user else 0)
+    response = response.replace("Aco", "Rose bot")
+    response = response.replace("aco", "Rose bot")
+
+    pro = response
+    if not "en" in lan and not lan == "":
+        pro = translator.translate(pro, dest=lan)
+        pro = pro.text
+    try:
+        await ankivector.send_chat_action(message.chat.id, "typing")
+        await message.reply_text(pro)
+    except CFError:
+        return
+
+
+@DewmiBot.on_message(
+    filters.regex("rose bot|Rose bot|Rose |rosebot|therosebot")
+    & ~filters.bot
+    & ~filters.via_bot
+    & ~filters.forwarded
+    & ~filters.reply
+    & ~filters.channel
+    & ~filters.edited
+)
+async def inuka(client, message):
+    msg = message.text
+    if msg.startswith("/") or msg.startswith("@"):
+        message.continue_propagation()
+    u = msg.split()
+    emj = extract_emojis(msg)
+    msg = msg.replace(emj, "")
+    if (
+        [(k) for k in u if k.startswith("@")]
+        and [(k) for k in u if k.startswith("#")]
+        and [(k) for k in u if k.startswith("/")]
+        and re.findall(r"\[([^]]+)]\(\s*([^)]+)\s*\)", msg) != []
+    ):
+
+        h = " ".join(filter(lambda x: x[0] != "@", u))
+        km = re.sub(r"\[([^]]+)]\(\s*([^)]+)\s*\)", r"", h)
+        tm = km.split()
+        jm = " ".join(filter(lambda x: x[0] != "#", tm))
+        hm = jm.split()
+        rm = " ".join(filter(lambda x: x[0] != "/", hm))
+    elif [(k) for k in u if k.startswith("@")]:
+
+        rm = " ".join(filter(lambda x: x[0] != "@", u))
+    elif [(k) for k in u if k.startswith("#")]:
+        rm = " ".join(filter(lambda x: x[0] != "#", u))
+    elif [(k) for k in u if k.startswith("/")]:
+        rm = " ".join(filter(lambda x: x[0] != "/", u))
+    elif re.findall(r"\[([^]]+)]\(\s*([^)]+)\s*\)", msg) != []:
+        rm = re.sub(r"\[([^]]+)]\(\s*([^)]+)\s*\)", r"", msg)
+    else:
+        rm = msg
+        # print (rm)
+    try:
+        lan = translator.detect(rm)
+        lan = lan.lang
+    except:
+        return
+    test = rm
+    if not "en" in lan and not lan == "":
+        try:
+            test = translator.translate(test, dest="en")
+            test = test.text
+        except:
+            return
+
+    # test = emoji.demojize(test.strip())
+
+    test = test.replace("Rose bot", "Aco")
+    test = test.replace("Rose bot", "Aco")
+    response = await lunaQuery(test, message.from_user.id if message.from_user else 0)
+    response = response.replace("Aco", "Rose bot")
+    response = response.replace("aco", "Rose bot")
+
+    pro = response
+    if not "en" in lan and not lan == "":
+        try:
+            pro = translator.translate(pro, dest=lan)
+            pro = pro.text
+        except Exception:
+            return
+    try:
+        await ankivector.send_chat_action(message.chat.id, "typing")
+        await message.reply_text(pro)
+    except CFError:
+        return
+
+
+__help__ = """
 @szrosebot🇱🇰
-Chatbot utilizes the CoffeeHouse API and allows Senku to talk and provides a more interactive group chat experience.
-
-*Commands:* 
-*Admins only:*
- ❍ `/addchat`*:* Enables Chatbot mode in the chat.
- ❍ `/rmchat`*:* Disables Chatbot mode in the chat.
-
-Reports bugs at @{SUPPORT_CHAT}
-[Powered by CoffeeHouse](https://coffeehouse.intellivoid.net) from @Intellivoid
-
+** Chatbot **
+@szrosebot🇱🇰 AI 3.0 IS THE ONLY AI SYSTEM WHICH CAN DETECT & REPLY UPTO 200 LANGUAGES
+ ❍ /chatbot [ON/OFF]: Enables and disables AI Chat mode (EXCLUSIVE)
+ ❍ /chatbot EN : Enables English only chatbot
+ 
+ 
+** Assistant **
+ ❍ /ask [question]: Ask question from Anki Vector
+ ❍ /ask [reply to voice note]: Get voice reply
+ 
 """
 
-ADD_CHAT_HANDLER = CommandHandler("addchat", add_chat)
-REMOVE_CHAT_HANDLER = CommandHandler("rmchat", remove_chat)
-CHATBOT_HANDLER = MessageHandler(
-    Filters.text
-    & (~Filters.regex(r"^#[^\s]+") & ~Filters.regex(r"^!") & ~Filters.regex(r"^\/")),
-    chatbot,
-)
-LIST_CB_CHATS_HANDLER = CommandHandler(
-    "listaichats", list_chatbot_chats, filters=CustomFilters.dev_filter
-)
-# Filters for ignoring #note messages, !commands and sed.
-
-dispatcher.add_handler(ADD_CHAT_HANDLER)
-dispatcher.add_handler(REMOVE_CHAT_HANDLER)
-dispatcher.add_handler(CHATBOT_HANDLER)
-dispatcher.add_handler(LIST_CB_CHATS_HANDLER)
-
-__mod_name__ = "Chatbot🤖"
-__command_list__ = ["addchat", "rmchat", "listaichats"]
-__handlers__ = [
-    ADD_CHAT_HANDLER,
-    REMOVE_CHAT_HANDLER,
-    CHATBOT_HANDLER,
-    LIST_CB_CHATS_HANDLER,
-]
+__mod_name__ = "Chat Bot🤖"
