@@ -228,7 +228,10 @@ def start(update: Update, context: CallbackContext):
             ),
             parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="Sᴜᴘᴘᴏʀᴛ", url="t.me/sl_bot_zone")]]
+              [
+                    InlineKeyboardButton(text="Support chat ", url="t.me/slbotzone"),
+                    InlineKeyboardButton(text="Updates channel", url="t.me/sl_bot_zone"),
+              ]
             ),
         )
      
