@@ -96,9 +96,9 @@ BUTTONS = [
         ),
     ],
     [
-        InlineKeyboardButton(text=" 𝐌𝐨𝐫𝐞 ", callback_data="innexia_basichelp"),
+        InlineKeyboardButton(text="❗️𝐈𝐧𝐟𝐨 & 𝐌𝐨𝐫𝐞 ♻️", callback_data="innexia_basichelp"),
         InlineKeyboardButton(
-            text="❗️𝐈𝐧𝐟𝐨 & 𝐀𝐛𝐨𝐮𝐭 ♻️", callback_data="aboutmanu_"
+            text=" 𝐀𝐛𝐨𝐮𝐭 ", callback_data="aboutmanu_"
         ),
     ],
     [
@@ -368,6 +368,10 @@ def DewmiBot_about_callback(update, context):
                         InlineKeyboardButton(
                             text="updates", url="t.me/sl_bot_zone"
                         ),
+                    ],
+                    [
+                    InlineKeyboardButton(text="Inline search 🔎", switch_inline_query_current_chat=""),
+                 
                     ],
                     [InlineKeyboardButton(text="Back", callback_data="aboutmanu_back")],
                 ]
