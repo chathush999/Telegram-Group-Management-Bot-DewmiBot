@@ -4,4 +4,4 @@ __help__ =  """
  ❍ /telegraph - Get Telegraph Link Of Replied Media
  I can upload files to Telegraph
 """
-__mod_name__ = "Telegraph 📭"       
+__mod_name__ = "Telegraph"       
