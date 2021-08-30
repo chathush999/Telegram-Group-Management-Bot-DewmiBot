@@ -94,6 +94,7 @@ if ENV:
     IBM_WATSON_CRED_PASSWORD = os.environ.get("IBM_WATSON_CRED_PASSWORD", None)
     TEMP_DOWNLOAD_DIRECTORY = os.environ.get("TEMP_DOWNLOAD_DIRECTORY", "./")
     BOT_ID = os.environ.get("BOT_ID", " ")
+    MONGO_DB_URI = os.environ.get("MONGO_DB_URI")
     
     try:
         WHITELIST_CHATS = set(
