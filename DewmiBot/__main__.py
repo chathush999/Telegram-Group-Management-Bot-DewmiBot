@@ -354,9 +354,9 @@ def DewmiBot_about_callback(update, context):
     query = update.callback_query
     if query.data == "aboutmanu_":
         query.message.edit_text(
-            text=f" @szrosebot🇱🇰 - A bot to manage your groups with additional features!
-            f"\n\n Here's the basic help regarding use of @szrosebot🇱🇰.
-            f"\n\n Almost all modules usage defined in the help menu, checkout by sending `/help`
+            text=f" @szrosebot🇱🇰 - A bot to manage your groups with additional features!"
+            f"\n\n Here's the basic help regarding use of @szrosebot🇱🇰."
+            f"\n\n Almost all modules usage defined in the help menu, checkout by sending `/help`"
             f"\n\n Report error/bugs click the Button ",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
