@@ -88,4 +88,4 @@ __help__ = """
  
 """
 
-__mod_name__ = "URL Upload📤"
+__mod_name__ = "URL Upload"
