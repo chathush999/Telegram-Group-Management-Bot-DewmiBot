@@ -13,7 +13,6 @@ from DewmiBot.modules.helper_funcs.chat_status import sudo_plus, dev_plus
 USERS_GROUP = 4
 DEV_AND_MORE = DEV_USERS.append(int(OWNER_ID))
 
-
 def get_user_id(username):
     # ensure valid userid
     if len(username) <= 5:
