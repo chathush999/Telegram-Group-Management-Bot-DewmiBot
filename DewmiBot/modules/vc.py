@@ -65,4 +65,4 @@ channel is also can be used instead of c ( /cplay = /channelplay )
 
 @szrosebot
 """
-__mod_name__ = "VC music Play🎙"
+__mod_name__ = "VC music Play"
