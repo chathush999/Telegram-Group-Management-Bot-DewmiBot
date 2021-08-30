@@ -67,6 +67,7 @@ PM_START_TEXT = """
 𝗽𝗿𝗼𝗺𝗼𝘁𝗲 𝗺𝗲 𝗮𝘀 **𝗔𝗱𝗺𝗶𝗻** 𝘁𝗼 𝗹𝗲𝘁 𝗺𝗲 𝗴𝗲𝘁 𝗶𝗻 𝗮𝗰𝘁𝗶𝗼𝗻!
 ** @sl_bot_zone Projects ** 🇱🇰
 """
+ROSEBOT_STICKER = "CAACAgUAAx0CS6YhoQACmVdhLJXZEG5dOyBrRuDWT07RHuwZrQACEQMAAh1JoVTWLqa6kpv8xiAE"
 
 HELP_STRINGS = f"""
 *Rose Help Menu*
@@ -215,11 +216,14 @@ def start(update: Update, context: CallbackContext):
                 IMPORTED["rules"].send_rules(update, args[0], from_pm=True)
 
         else:
+            update.effective_message.reply_sticker(
+                ROSEBOT_STICKER,
+                timeout=60,
+            )
             update.effective_message.reply_text(
                 PM_START_TEXT,
-                reply_markup=InlineKeyboardMarkup(BUTTONS),
+                reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
-                timeout=60, 
             )
     else:
         update.effective_message.reply_text(
@@ -229,7 +233,6 @@ def start(update: Update, context: CallbackContext):
             parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup(
                 [[InlineKeyboardButton(text="Updates", url="t.me/sl_bot_zone")]],
-                [[InlineKeyboardButton(text="Sᴜᴘᴘᴏʀᴛ", url="t.me/slbotzone")]]
             ),
         )
      
