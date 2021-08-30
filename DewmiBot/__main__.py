@@ -61,11 +61,12 @@ from DewmiBot.modules.helper_funcs.misc import paginate_modules
 from DewmiBot.modules.helper_funcs.readable_time import get_readable_time
 
 PM_START_TEXT = """
-𝙃𝙚𝙮 𝙩𝙝𝙚𝙧𝙚! 👋 
-𝙈𝙮 𝙣𝙖𝙢𝙚 𝙄𝙨 **Rose bot 🌹** . 
+𝙃𝙚𝙮 𝙩𝙝𝙚𝙧𝙚! 👋 𝙈𝙮 𝙣𝙖𝙢𝙚 𝙄𝙨 **Rose bot 🌹** .
+
 𝙄 𝙘𝙖𝙣 𝙝𝙚𝙡𝙥 𝙢𝙖𝙣𝙖𝙜𝙚 𝙮𝙤𝙪𝙧 𝙜𝙧𝙤𝙪𝙥𝙨 𝙬𝙞𝙩𝙝 𝙪𝙨𝙚𝙛𝙪𝙡 𝙛𝙚𝙖𝙩𝙪𝙧𝙚𝙨, 𝙛𝙚𝙚𝙡 𝙛𝙧𝙚𝙚 𝙩𝙤 𝙖𝙙𝙙 𝙢𝙚 𝙩𝙤 𝙮𝙤𝙪𝙧 𝙜𝙧𝙤𝙪𝙥𝙨!
+
 𝗽𝗿𝗼𝗺𝗼𝘁𝗲 𝗺𝗲 𝗮𝘀 **𝗔𝗱𝗺𝗶𝗻** 𝘁𝗼 𝗹𝗲𝘁 𝗺𝗲 𝗴𝗲𝘁 𝗶𝗻 𝗮𝗰𝘁𝗶𝗼𝗻!
-** @sl_bot_zone Projects ** 🇱🇰
+
 """
 
 HELP_STRINGS = f"""
@@ -366,15 +367,19 @@ def DewmiBot_about_callback(update, context):
                 [
                     [
                         InlineKeyboardButton(
-                            text="Bᴜɢ'ꜱ", url="t.me/slbotzone"
+                            text="Bᴜɢ'ꜱ🐞", url="t.me/slbotzone"
                         ),
                         InlineKeyboardButton(
-                            text="updates", url="t.me/sl_bot_zone"
+                            text="updates💁‍♀️", url="t.me/sl_bot_zone"
                         ),
                     ],
                     [
-                    InlineKeyboardButton(text="Inline search 🔎", switch_inline_query_current_chat=""),
-                 
+                        InlineKeyboardButton(
+                            text="Donate 🤕", url="http://t.me/szrosebot?start=donate"
+                        ),
+                        InlineKeyboardButton(
+                            text="Inline search 🔎", switch_inline_query_current_chat=""
+                        ),
                     ],
                     [InlineKeyboardButton(text="Back", callback_data="aboutmanu_back")],
                 ]
@@ -401,12 +406,12 @@ def DewmiBot_about_callback(update, context):
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="Aᴅᴍɪɴ", callback_data="innexia_admin"),
-                    InlineKeyboardButton(text="Nᴏᴛᴇꜱ", callback_data="innexia_notes"),
+                    InlineKeyboardButton(text="Aᴅᴍɪɴ", callback_data="aboutmanu_credit"),
+                    InlineKeyboardButton(text="Nᴏᴛᴇꜱ", callback_data="aboutmanu_permis"),
                  ],
                  [
-                    InlineKeyboardButton(text="Sᴜᴘᴘᴏʀᴛ", callback_data="innexia_support"),
-                    InlineKeyboardButton(text="Cʀᴇᴅɪᴛ", callback_data="innexia_credit"),
+                    InlineKeyboardButton(text="Sᴜᴘᴘᴏʀᴛ", callback_data="aboutmanu_spamprot"),
+                    InlineKeyboardButton(text="Cʀᴇᴅɪᴛ", callback_data="aboutmanu_tac"),
                  ],
                  [
                     InlineKeyboardButton(text="Back", callback_data="aboutmanu_back"),
@@ -415,7 +420,7 @@ def DewmiBot_about_callback(update, context):
                 ]
             ),
         )
-    elif query.data == "innexia_admin":
+    elif query.data == "aboutmanu_credit":
         query.message.edit_text(
             text=f"*Let's make your group bit effective now*"
             f"\nCongragulations, @szrosebot🇱🇰 now ready to manage your group."
@@ -432,7 +437,7 @@ def DewmiBot_about_callback(update, context):
             ),
         )
 
-    elif query.data == "innexia_notes":
+    elif query.data == "aboutmanu_permis":
         query.message.edit_text(
             text=f"<b> Setting up notes</b>"
             f"\nYou can save message/media/audio or anything as notes"
@@ -443,7 +448,7 @@ def DewmiBot_about_callback(update, context):
                 [[InlineKeyboardButton(text="Back", callback_data="aboutmanu_howto")]]
             ),
         )
-    elif query.data == "innexia_support":
+    elif query.data == "aboutmanu_spamprot":
         query.message.edit_text(
             text="* @szrosebot🇱🇰 support chats*"
             "\nJoin Support Group/Channel",
@@ -465,7 +470,7 @@ def DewmiBot_about_callback(update, context):
                 ]
             ),
         )
-    elif query.data == "innexia_credit":
+    elif query.data == "aboutmanu_tac":
         query.message.edit_text(
             text=f"<b> CREDIT FOR @szrosebot🇱🇰  DEV'S</b>\n"
             f"\nHere Some Developers Helping in Making The @szrosebot🇱🇰 Thank you all supporters ",
