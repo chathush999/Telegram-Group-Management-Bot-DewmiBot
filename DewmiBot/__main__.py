@@ -28,7 +28,7 @@ from DewmiBot import (
 from DewmiBot.modules import ALL_MODULES
 from DewmiBot.modules.helper_funcs.chat_status import is_user_admin
 from DewmiBot.modules.helper_funcs.misc import paginate_modules
-from DewmiBot import InlineKeyboardButton, InlineKeyboardMarkup, ParseMode, Update
+from telegram import InlineKeyboardButton, InlineKeyboardMarkup, ParseMode, Update
 from telegram.error import (
     BadRequest,
     ChatMigrated,
