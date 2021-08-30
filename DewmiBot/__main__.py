@@ -96,7 +96,7 @@ BUTTONS = [
         ),
     ],
     [
-        InlineKeyboardButton(text=" 𝐌𝐨𝐫𝐞 ", callback_data="aboutmanu_"),
+        InlineKeyboardButton(text=" 𝐌𝐨𝐫𝐞 ", callback_data="innexia_basichelp"),
         InlineKeyboardButton(
             text="❗️𝐈𝐧𝐟𝐨 & 𝐀𝐛𝐨𝐮𝐭 ♻️", callback_data="aboutmanu_"
         ),
@@ -199,7 +199,7 @@ def start(update: Update, context: CallbackContext):
                     update.effective_chat.id,
                     HELPABLE[mod].__help__,
                     InlineKeyboardMarkup(
-                        [[InlineKeyboardButton(text="⬅️ Back", callback_data="help_back")]]
+                        [[InlineKeyboardButton(text="⬅️ BACK", callback_data="help_back")]]
                     ),
                 )
 
@@ -214,26 +214,25 @@ def start(update: Update, context: CallbackContext):
 
             elif args[0][1:].isdigit() and "rules" in IMPORTED:
                 IMPORTED["rules"].send_rules(update, args[0], from_pm=True)
-                
+
         else:
             update.effective_message.reply_text(
                 PM_START_TEXT,
-                reply_markup=InlineKeyboardMarkup(BUTTONS),
+                reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
-                timeout=60, 
+                timeout=60,
             )
     else:
         update.effective_message.reply_text(
-            "𝑰'𝒎 𝒂𝒘𝒂𝒌𝒆 𝒂𝒍𝒓𝒆𝒂𝒅𝒚!😊\𝒏<𝒃>𝑯𝒂𝒗𝒆𝒏'𝒕 𝒔𝒍𝒆𝒑𝒕 𝒔𝒊𝒏𝒄𝒆:</𝒃> <𝒄𝒐𝒅𝒆>{}</𝒄𝒐𝒅𝒆>😝".format(
+            "𝑰'𝒎 𝒂𝒘𝒂𝒌𝒆 𝒂𝒍𝒓𝒆𝒂𝒅𝒚!😊\𝒏<𝒃>𝑯𝒂𝒗𝒆𝒏'𝒕 𝒔𝒍𝒆𝒑𝒕 𝒔𝒊𝒏𝒄𝒆:</𝒃><code>{}</code>😝".format(
                 uptime
             ),
             parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="Sᴜᴘᴘᴏʀᴛ", url="t.me/slbotzone")]]
+                [[InlineKeyboardButton(text="Sᴜᴘᴘᴏʀᴛ", url="t.me/sl_bot_zone")]]
             ),
         )
-
-
+        
 def error_handler(update, context):
     """Log the error and send a telegram message to notify the developer."""
     LOGGER.error(msg="Exception while handling an update:", exc_info=context.error)
@@ -384,102 +383,104 @@ def DewmiBot_about_callback(update, context):
 
     elif query.data == "aboutmanu_howto":
         query.message.edit_text(
-            text=f"* ｢ 𝐁𝐀𝐒𝐈𝐂 𝐇𝐄𝐋𝐏 」*"
-            f"\n\n⭕️ 𝙄𝙛 𝙔𝙤𝙪 𝘾𝙖𝙣 𝘼𝙡𝙨𝙤 𝘼𝙙𝙙 {𝙙𝙞𝙨𝙥𝙖𝙩𝙘𝙝𝙚𝙧.𝙗𝙤𝙩.𝙛𝙞𝙧𝙨𝙩_𝙣𝙖𝙢𝙚} 𝙏𝙤 𝙔𝙤𝙪𝙧 𝘾𝙝𝙖𝙩𝙨 𝘽𝙮 𝘾𝙡𝙞𝙘𝙠𝙞𝙣𝙜 [𝙃𝙚𝙧𝙚](𝙝𝙩𝙩𝙥://𝙩.𝙢𝙚/{𝙙𝙞𝙨𝙥𝙖𝙩𝙘𝙝𝙚𝙧.𝙗𝙤𝙩.𝙪𝙨𝙚𝙧𝙣𝙖𝙢𝙚}?𝙨𝙩𝙖𝙧𝙩𝙜𝙧𝙤𝙪𝙥=𝙩𝙧𝙪𝙚) 𝘼𝙣𝙙 𝙎𝙚𝙡𝙚𝙘𝙩𝙞𝙣𝙜 𝘾𝙝𝙖𝙩. \𝙣"
-            f"\n\n⭕️ 𝐘𝐨𝐮 𝐂𝐚𝐧 𝐠𝐞𝐭 𝐬𝐮𝐩𝐩𝐨𝐫𝐭 {𝐝𝐢𝐬𝐩𝐚𝐭𝐜𝐡𝐞𝐫.𝐛𝐨𝐭.𝐟𝐢𝐫𝐬𝐭_𝐧𝐚𝐦𝐞} 𝐛𝐲 𝐣𝐨𝐢𝐧𝐢𝐧𝐠 [𝐒𝐋 𝐓𝐞𝐜𝐡 𝐙𝐨𝐧𝐞](𝐡𝐭𝐭𝐩𝐬://𝐭.𝐦𝐞/𝐬𝐥𝐭𝐞𝐜𝐡𝐳𝐨𝐧𝐞).\𝐧"
+            text=f"** Here's basic Help regarding* *How to use Me? **"
+            f"\n\n Firstly Add {dispatcher.bot.first_name} to your group by pressing [here](http://t.me/{dispatcher.bot.username}?startgroup=true)\n"
+            f"\n\n After adding promote me manually with full rights for faster experience.\n"
+            f"\n\n Than send `/admincache@szrosebot` in that chat to refresh admin list in My database.\n"
+            f"\n\n *All done now use below given button's to know about use!*\n"
             f"",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
                 [
-                    [
-                        InlineKeyboardButton(
-                            text="Admins Settings👮‍♀️", callback_data="aboutmanu_permis"
-                        ),
-                        InlineKeyboardButton(
-                            text="Anti Spam💫", callback_data="aboutmanu_spamprot"
-                        ),
-                    ],
-                    [InlineKeyboardButton(text="🔙Back", callback_data="aboutmanu_")],
+                 [
+                    InlineKeyboardButton(text="Aᴅᴍɪɴ", callback_data="innexia_admin"),
+                    InlineKeyboardButton(text="Nᴏᴛᴇꜱ", callback_data="innexia_notes"),
+                 ],
+                 [
+                    InlineKeyboardButton(text="Sᴜᴘᴘᴏʀᴛ", callback_data="innexia_support"),
+                    InlineKeyboardButton(text="Cʀᴇᴅɪᴛ", callback_data="innexia_credit"),
+                 ],
+                 [
+                    InlineKeyboardButton(text="Back", callback_data="aboutmanu_back"),
+                 
+                 ]
                 ]
             ),
         )
-    elif query.data == "aboutmanu_credit":
+    elif query.data == "innexia_admin":
         query.message.edit_text(
-            text=f"*{dispatcher.bot.first_name} 𝗜𝘀 𝘁𝗵𝗲 𝗿𝗲𝗱𝗶𝘀𝗶𝗴𝗻𝗲𝗱 𝘃𝗲𝗿𝘀𝗶𝗼𝗻 𝗼𝗳 𝗦𝗲𝗻𝗸𝘂𝗥𝗼𝗯𝗼𝘁 𝗳𝗼𝗿 𝘁𝗵𝗲 𝗯𝗲𝘀𝘁 𝗽𝗲𝗿𝗳𝗼𝗿𝗺𝗮𝗻𝗰𝗲.*"
-            f"\n\n{dispatcher.bot.first_name}'s 𝒔𝒐𝒖𝒓𝒄𝒆 𝒄𝒐𝒅𝒆 𝒘𝒂𝒔 𝑫𝒆𝒗𝒐𝒍𝒐𝒑𝒆𝒅 𝑩𝒚 [GD Hiruna](https://t.me/hirunaofficial)𝐃𝐞𝐩𝐥𝐨𝐲 𝐛𝐲 [supun](https://t.me/supunma)"
-            f"\n\n𝑰𝒇 𝑨𝒏𝒚 𝑸𝒖𝒆𝒔𝒕𝒊𝒐𝒏 𝑨𝒃𝒐𝒖𝒕 {𝒅𝒊𝒔𝒑𝒂𝒕𝒄𝒉𝒆𝒓.𝒃𝒐𝒕.𝒇𝒊𝒓𝒔𝒕_𝒏𝒂𝒎𝒆}, 𝑳𝒆𝒕 𝑼𝒔 𝑲𝒏𝒐𝒘 𝑨𝒕 @{𝑺𝑼𝑷𝑷𝑶𝑹𝑻_𝑪𝑯𝑨𝑻}.",
+            text=f"*Let's make your group bit effective now*"
+            f"\nCongragulations, @szrosebot🇱🇰 now ready to manage your group."
+            f"\n\n*Admin Tools*"
+            f"\nBasic Admin tools help you to protect and powerup your group."
+            f"\nYou can ban members, Kick members, Promote someone as admin through commands of bot."
+            f"\n\n*Welcome*"
+            f"\nLets set a welcome message to welcome new users coming to your group."
+            f"send `/setwelcome [message]` to set a welcome message!",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="🔙Back", callback_data="aboutmanu_tac")]]
+                [[InlineKeyboardButton(text="Back", callback_data="aboutmanu_howto")]]
             ),
         )
-    elif query.data == "aboutmanu_permis":
+
+    elif query.data == "innexia_notes":
         query.message.edit_text(
-            text=f"<b> ｢ Admin Permissions 」</b>"
-            f"\n\n✅ To avoid slowing down, {dispatcher.bot.first_name} caches admin rights for each user. This cache lasts about 10 minutes; this may change in the future. This means that if you promote a user manually (without using the /promote command), {dispatcher.bot.first_name} will only find out ~10 minutes later."
-            f"\n\n✅ IF you want to update them immediately, you can use the /admincache command,thta'll force {dispatcher.bot.first_name} to check who the admins are again and their permissions"
-            f"\n\n✅ If you are getting a message saying:"
-            f"\n<Code>You must be this chat administrator to perform this action!</code>"
-            f"\n\n✅This has nothing to do with {dispatcher.bot.first_name}'s rights; this is all about YOUR permissions as an admin. {dispatcher.bot.first_name} respects admin permissions; if you do not have the Ban Users permission as a telegram admin, you won't be able to ban users with {dispatcher.bot.first_name}. Similarly, to change {dispatcher.bot.first_name} settings, you need to have the Change group info permission."
-            f"\n\n✅The message very clearly says that you need these rights - <i>not {dispatcher.bot.first_name}.</i>",
+            text=f"<b> Setting up notes</b>"
+            f"\nYou can save message/media/audio or anything as notes"
+            f"\nto get a note simply use # at the beginning of a word"
+            f"\n\nYou can also set buttons for notes and filters (refer help menu)",
             parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="🔙 Back", callback_data="aboutmanu_howto")]]
+                [[InlineKeyboardButton(text="Back", callback_data="aboutmanu_howto")]]
             ),
         )
-    elif query.data == "aboutmanu_spamprot":
+    elif query.data == "innexia_support":
         query.message.edit_text(
-            text="* ｢ Anti-Spam Settings 」*"
-            "\n\n🔰 /antispam <on/off/yes/no>: Change antispam security settings in the group, or return your current settings(when no arguments)."
-            "\n_This helps protect you and your groups by removing spam flooders as quickly as possible._"
-            "\n\n🔰 /setflood <int/'no'/'off'>: enables or disables flood control"
-            "\n🔰 /setfloodmode <ban/kick/mute/tban/tmute> <value>: Action to perform when user have exceeded flood limit. ban/kick/mute/tmute/tban"
-            "\n_Antiflood allows you to take action on users that send more than x messages in a row. Exceeding the set flood will result in restricting that user._"
-            "\n\n🔰 /addblacklist <triggers>: Add a trigger to the blacklist. Each line is considered one trigger, so using different lines will allow you to add multiple triggers."
-            "\n🔰 /blacklistmode <off/del/warn/ban/kick/mute/tban/tmute>: Action to perform when someone sends blacklisted words."
-            "\n_Blacklists are used to stop certain triggers from being said in a group. Any time the trigger is mentioned, the message will immediately be deleted. A good combo is sometimes to pair this up with warn filters!_"
-            "\n\n🔰 /reports <on/off>: Change report setting, or view current status."
-            "\n • If done in pm, toggles your status."
-            "\n • If in chat, toggles that chat's status."
-            "\n_If someone in your group thinks someone needs reporting, they now have an easy way to call all admins._"
-            "\n\n🔰 /lock <type>: Lock items of a certain type (not available in private)"
-            "\n🔰 /locktypes: Lists all possible locktypes"
-            "\n_The locks module allows you to lock away some common items in the telegram world; the bot will automatically delete them!_"
-            '\n\n🔰 /addwarn <keyword> <reply message>: Sets a warning filter on a certain keyword. If you want your keyword to be a sentence, encompass it with quotes, as such: /addwarn "very angry" This is an angry user. '
-            "\n🔰 /warn <userhandle>: Warns a user. After 3 warns, the user will be banned from the group. Can also be used as a reply."
-            "\n🔰 /strongwarn <on/yes/off/no>: If set to on, exceeding the warn limit will result in a ban. Else, will just kick."
-            "\n_If you're looking for a way to automatically warn users when they say certain things, use the /addwarn command._"
-            "\n\n🔰 /welcomemute <off/soft/strong>: All users that join, get muted"
-            "\n_ A button gets added to the welcome message for them to unmute themselves. This proves they aren't a bot! soft - restricts users ability to post media for 24 hours. strong - mutes on join until they prove they're not bots._",
+            text="* @szrosebot🇱🇰 support chats*"
+            "\nJoin Support Group/Channel",
             parse_mode=ParseMode.MARKDOWN,
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="🔙 Back", callback_data="aboutmanu_howto")]]
+                [
+                 [
+                    InlineKeyboardButton(text="Owener channel ", url="https://t.me/FreeNetSL"),
+                    InlineKeyboardButton(text="Owner group ", url="https://t.me/supunmasl"),
+                 ],
+                 [
+                    InlineKeyboardButton(text="Sᴜᴘᴘᴏʀᴛ", url="https://t.me/slbotzone"),
+                    InlineKeyboardButton(text="Uᴘᴅᴀᴛᴇꜱ", url="https://t.me/sl_bot_zone"),
+                 ],
+                 [
+                    InlineKeyboardButton(text="Back", callback_data="aboutmanu_howto"),
+                 
+                 ]
+                ]
             ),
         )
-    elif query.data == "aboutmanu_tac":
+    elif query.data == "innexia_credit":
         query.message.edit_text(
-            text=f"<b> ｢ Terms and Conditions 🚫」</b>\n"
-            f"\n <i>To Use This Bot, You Need To Read Terms and Conditions Carefully.</i> 🙏\n"
-            f"\n We always respect your privacy \n  We never log into bot's api and spying on you \n  We use a encripted database \n  Bot will automatically stops if someone logged in with api."
-            f"\n Always try to keep credits, so \n  This hardwork is done by GD Hiruna team .. So, Respect it.Thank you GD Hiruna team "
-            f"\n Some modules in this bot is owned by different authors, So, \n  All credits goes to them \n  Also for <b>Paul Larson for Marie</b>."
-            f"\n If you need to ask anything about \n  this bot, Go @{SUPPORT_CHAT}."
-            f"\n If you asking nonsense in Support \n  Chat, you will get warned/banned."
-            f"\n All api's we used owned by originnal authors \n  Some api's we use Free version \n  Please don't overuse AI Chat."
-            f"\n We don't Provide any support to forks,\n  So these terms and conditions not applied to forks \n  If you are using a fork of dewmibot we are not resposible for anything."
-            f"\n\nFor any kind of help, related to this bot, Join @{SUPPORT_CHAT}."
-            f"\n\n<i>Terms & Conditions will be changed anytime</i>\n",
+            text=f"<b> CREDIT FOR @szrosebot🇱🇰  DEV'S</b>\n"
+            f"\nHere Some Developers Helping in Making The @szrosebot🇱🇰 Thank you all supporters ",
             parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup(
                 [
-                    [
-                        InlineKeyboardButton(
-                            text="Credits", callback_data="aboutmanu_credit"
-                        ),
-                        InlineKeyboardButton(text="Back", callback_data="aboutmanu_"),
-                    ]
+                 [
+                    InlineKeyboardButton(text="Dewmibot", url="https://t.me/sltechzoneofficial"),
+                    InlineKeyboardButton(text="Aniki victor bot", url="https://t.me/ankivectorUpdates"),
+                 ],
+                 [
+                    InlineKeyboardButton(text="Uvindu bro", url="https://t.me/UvinduBro"),
+                    InlineKeyboardButton(text="Stream_Music", url="https://t.me/SDBOTs_inifinity"),
+                 ],
+                 [
+                    InlineKeyboardButton(text="Daisyx bot", url="https://github.com/TeamDaisyX/Daisy-OLD"),
+                    InlineKeyboardButton(text="innexia bot", url="https://github.com/DarkCybers/innexia/blob/Sammy/innexiaBot"),
+                 ],   
+                 [
+                    InlineKeyboardButton(text="Back", callback_data="aboutmanu_howto"),
+                 
+                 ]
                 ]
             ),
         )
