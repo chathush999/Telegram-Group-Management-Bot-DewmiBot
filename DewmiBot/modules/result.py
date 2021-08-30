@@ -20,4 +20,4 @@ __help__ = """
  
 'Donents.lk Bot' © @uvindbro
 """
-__mod_name__ = "Result📚"
+__mod_name__ = "Result"
