@@ -40,7 +40,7 @@ async def telegraph(client, message):
         await message.reply(message, text=document)
     else:
         await message.reply(
-            f"**Uploaded To Telegraph!\n\n👉 https://telegra.ph{response[0]}\n\nUploaded by @szrosebot🇱🇰**",
+            f"** Uploaded To Telegraph!\n\n👉 https://telegra.ph{response[0]}\n\nUploaded by @szrosebot🇱🇰**",
             disable_web_page_preview=True,
         )
     finally:
