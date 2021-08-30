@@ -627,4 +627,4 @@ __handlers__ = [
     BUTTON_HANDLER,
     AIRING_HANDLER,
 ]
-__mod_name__ = "Anime✨"
+__mod_name__ = "Anime"
