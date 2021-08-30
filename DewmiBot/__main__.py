@@ -96,7 +96,7 @@ BUTTONS = [
         ),
     ],
     [
-        InlineKeyboardButton(text="❗️𝐈𝐧𝐟𝐨 & 𝐌𝐨𝐫𝐞 ♻️", callback_data="innexia_basichelp"),
+        InlineKeyboardButton(text="❗️𝐈𝐧𝐟𝐨 & 𝐌𝐨𝐫𝐞 ♻️", callback_data="aboutmanu_howto"),
         InlineKeyboardButton(
             text=" 𝐀𝐛𝐨𝐮𝐭 ", callback_data="aboutmanu_"
         ),
