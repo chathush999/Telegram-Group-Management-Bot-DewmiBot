@@ -220,6 +220,7 @@ def start(update: Update, context: CallbackContext):
                 ROSEBOT_STICKER,
                 timeout=60,
             )
+            update.effective_user.first_name
             update.effective_message.reply_text(
                 PM_START_TEXT,
                 reply_markup=InlineKeyboardMarkup(buttons),
