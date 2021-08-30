@@ -92,19 +92,19 @@ BUTTONS = [
             text="➕️ 𝐀𝐃𝐃 𝐌𝐄 𝐓𝐎 𝐘𝐎𝐔𝐑 𝐆𝐑𝐎𝐔𝐏 ➕️", url="http://t.me/szrosebot?startgroup=true"),
     ],
     [
-        InlineKeyboardButton(text="📢 𝐜𝐡𝐚𝐧𝐧𝐞𝐥", url=f"https://t.me/sl_bot_zone"),
+        InlineKeyboardButton(text="📢 Bot updates ", url=f"https://t.me/sl_bot_zone"),
         InlineKeyboardButton(
-            text="💬 𝐒𝐔𝐏𝐏𝐎𝐑𝐓", url=f"https://t.me/slbotzone"
+            text="🤦‍♂️Socure code ", url=f"https://www.youtube.com/channel/UCvYfJcTr8RY72dIapzMqFQA"
         ),
     ],
     [
-        InlineKeyboardButton(text="❗️𝐈𝐧𝐟𝐨 & 𝐌𝐨𝐫𝐞 ♻️", callback_data="aboutmanu_howto"),
+        InlineKeyboardButton(text="Info & about 💁‍♀️", callback_data="aboutmanu_howto"),
         InlineKeyboardButton(
-            text=" 𝐀𝐛𝐨𝐮𝐭 ", callback_data="aboutmanu_"
+            text=" More 🍁 ", callback_data="aboutmanu_"
         ),
     ],
     [
-        InlineKeyboardButton(text=" ❗️ 𝗛𝗲𝗹𝗽 & 𝗖𝗼𝗺𝗺𝗮𝗻𝗱 ❓", callback_data="help_back"),
+        InlineKeyboardButton(text="🧰 Help & commands 🛠 ", callback_data="help_back"),
     ],
 ]
 IMPORTED = {}
