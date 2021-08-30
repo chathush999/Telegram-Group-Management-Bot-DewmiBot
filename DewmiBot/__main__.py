@@ -62,12 +62,11 @@ from DewmiBot.modules.helper_funcs.readable_time import get_readable_time
 
 PM_START_TEXT = """
 𝙃𝙚𝙮 𝙩𝙝𝙚𝙧𝙚! 👋 
-𝙈𝙮 𝙣𝙖𝙢𝙚 𝙄𝙨 **Rose bot 🌹**[🌹](https://telegra.ph/file/14e7d126eb01b0e49dc93.jpg). 
+𝙈𝙮 𝙣𝙖𝙢𝙚 𝙄𝙨 **Rose bot 🌹** . 
 𝙄 𝙘𝙖𝙣 𝙝𝙚𝙡𝙥 𝙢𝙖𝙣𝙖𝙜𝙚 𝙮𝙤𝙪𝙧 𝙜𝙧𝙤𝙪𝙥𝙨 𝙬𝙞𝙩𝙝 𝙪𝙨𝙚𝙛𝙪𝙡 𝙛𝙚𝙖𝙩𝙪𝙧𝙚𝙨, 𝙛𝙚𝙚𝙡 𝙛𝙧𝙚𝙚 𝙩𝙤 𝙖𝙙𝙙 𝙢𝙚 𝙩𝙤 𝙮𝙤𝙪𝙧 𝙜𝙧𝙤𝙪𝙥𝙨!
 𝗽𝗿𝗼𝗺𝗼𝘁𝗲 𝗺𝗲 𝗮𝘀 **𝗔𝗱𝗺𝗶𝗻** 𝘁𝗼 𝗹𝗲𝘁 𝗺𝗲 𝗴𝗲𝘁 𝗶𝗻 𝗮𝗰𝘁𝗶𝗼𝗻!
 ** @sl_bot_zone Projects ** 🇱🇰
 """
-ROSEBOT_STICKER = "CAACAgUAAx0CS6YhoQACmVdhLJXZEG5dOyBrRuDWT07RHuwZrQACEQMAAh1JoVTWLqa6kpv8xiAE"
 
 HELP_STRINGS = f"""
 *Rose Help Menu*
@@ -216,11 +215,6 @@ def start(update: Update, context: CallbackContext):
                 IMPORTED["rules"].send_rules(update, args[0], from_pm=True)
 
         else:
-            update.effective_message.reply_sticker(
-                ROSEBOT_STICKER,
-                timeout=60,
-            )
-            update.effective_user.first_name
             update.effective_message.reply_text(
                 PM_START_TEXT,
                 reply_markup=InlineKeyboardMarkup(buttons),
