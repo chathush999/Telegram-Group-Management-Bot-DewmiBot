@@ -182,7 +182,6 @@ def test(update, context):
     update.effective_message.reply_text("This person edited a message")
     print(update.effective_message)
 
-
 @run_async
 def start(update: Update, context: CallbackContext):
     args = context.args
@@ -199,7 +198,7 @@ def start(update: Update, context: CallbackContext):
                     update.effective_chat.id,
                     HELPABLE[mod].__help__,
                     InlineKeyboardMarkup(
-                        [[InlineKeyboardButton(text="⬅️ BACK", callback_data="help_back")]]
+                        [[InlineKeyboardButton(text="Back", callback_data="help_back")]]
                     ),
                 )
 
@@ -218,13 +217,13 @@ def start(update: Update, context: CallbackContext):
         else:
             update.effective_message.reply_text(
                 PM_START_TEXT,
-                reply_markup=InlineKeyboardMarkup(buttons),
+                reply_markup=InlineKeyboardMarkup(BUTTONS),
                 parse_mode=ParseMode.MARKDOWN,
-                timeout=60,
+                timeout=60, 
             )
     else:
         update.effective_message.reply_text(
-            "𝑰'𝒎 𝒂𝒘𝒂𝒌𝒆 𝒂𝒍𝒓𝒆𝒂𝒅𝒚!😊\𝒏<𝒃>𝑯𝒂𝒗𝒆𝒏'𝒕 𝒔𝒍𝒆𝒑𝒕 𝒔𝒊𝒏𝒄𝒆:</𝒃><code>{}</code>😝".format(
+            "𝑰'𝒎 𝒂𝒘𝒂𝒌𝒆 𝒂𝒍𝒓𝒆𝒂𝒅𝒚!😊\n<b>𝑯𝒂𝒗𝒆𝒏'𝒕 𝒔𝒍𝒆𝒑𝒕 𝒔𝒊𝒏𝒄𝒆:</b> <code>{}</code>😝".format(
                 uptime
             ),
             parse_mode=ParseMode.HTML,
@@ -232,7 +231,7 @@ def start(update: Update, context: CallbackContext):
                 [[InlineKeyboardButton(text="Sᴜᴘᴘᴏʀᴛ", url="t.me/sl_bot_zone")]]
             ),
         )
-        
+     
 def error_handler(update, context):
     """Log the error and send a telegram message to notify the developer."""
     LOGGER.error(msg="Exception while handling an update:", exc_info=context.error)
