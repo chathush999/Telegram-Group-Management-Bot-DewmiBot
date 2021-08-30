@@ -216,4 +216,4 @@ __help__ = """
  
 """
 
-__mod_name__ = "Zipper📁"
+__mod_name__ = "Zipper"
