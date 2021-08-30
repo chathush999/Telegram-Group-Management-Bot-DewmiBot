@@ -352,7 +352,7 @@ if is_module_loaded(FILENAME):
     
     """
 
-    __mod_name__ = "Disabling🔌"
+    __mod_name__ = "Disabling"
 
 else:
     DisableAbleCommandHandler = CommandHandler
