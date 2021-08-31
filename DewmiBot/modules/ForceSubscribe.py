@@ -60,7 +60,7 @@ def _onUnMuteRequest(client, cb):
             else:
                 client.answer_callback_query(
                     cb.id,
-                    text="❗ Warning! Don't press the button when you can talk.",
+                    text="❗ Warning! Don't press the button when you can talk 🤷‍♂️.",
                     show_alert=True,
                 )
 
@@ -97,6 +97,12 @@ def _check_member(client, message):
                                 [
                                     InlineKeyboardButton(
                                         "UnMute Me", callback_data="onUnMuteRequest"
+                                    )
+                                ],
+                                [
+                                    InlineKeyboardButton(
+                                        "Updates ", 
+                                         url="https://t.me/SL_bot_zone"
                                     )
                                 ],
                             ]
@@ -149,7 +155,7 @@ def config(client, message):
                     client.get_chat_member(input_str, "me")
                     sql.add_channel(chat_id, input_str)
                     message.reply_text(
-                        f"✅ **Force Subscribe is Enabled**\n__Force Subscribe is enabled, all the group members have to subscribe this [channel](https://t.me/{input_str}) in order to send messages in this group.__",
+                        f"✅ **Force Subscribe is Enabled in your chat**\n__Force Subscribe is enabled, all the group members have to subscribe this [channel](https://t.me/{input_str}) in order to send messages in this group.__",
                         disable_web_page_preview=True,
                     )
                 except UserNotParticipant:
@@ -164,7 +170,7 @@ def config(client, message):
         else:
             if sql.fs_settings(chat_id):
                 message.reply_text(
-                    f"✅ **Force Subscribe is enabled in this chat.**\n__For this [Channel](https://t.me/{sql.fs_settings(chat_id).channel})__",
+                    f"✅ **Force Subscribe is enabled in your chat.**\n__For this [Channel](https://t.me/{sql.fs_settings(chat_id).channel})__",
                     disable_web_page_preview=True,
                 )
             else:
