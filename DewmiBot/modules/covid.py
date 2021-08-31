@@ -1,6 +1,6 @@
 import requests
 from telegram import ParseMode, Update
-from telegram import InlineKeyboardButton,InlineKeyboardMarkup,Message
+
 from telegram.ext import CallbackContext, run_async
 
 from DewmiBot import dispatcher
@@ -20,10 +20,7 @@ def covid(update: Update, context: CallbackContext):
         r = requests.get(f"https://corona.lmao.ninja/v2/countries/{variabla}").json()
         reply_text = f"**🦠 Corona Virus Results{r['country']} 🦠**\n🌡 Confirmed: {r['cases']:,}\nCases Today: {r['todayCases']:,}\n⚰️  Deaths: {r['deaths']:,}\nDeaths Today: {r['todayDeaths']:,}\n♻️ Recovered: {r['recovered']:,}\n🩸 Active: {r['active']:,}\nCritical: {r['critical']:,}\nCases/Mil: {r['casesPerOneMillion']}\nDeaths/Mil: {r['deathsPerOneMillion']}"
 
-        message.reply_text(reply_text,reply_markup,parse_mode=ParseMode.MARKDOWN)
-        reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="Updates", url="t.me/sl_bot_zone")]],
-            )
+        message.reply_text(reply_text,parse_mode=ParseMode.MARKDOWN)
 
 
 COVID_HANDLER = DisableAbleCommandHandler(["covid", "corona"], covid)
