@@ -422,7 +422,7 @@ def DewmiBot_about_callback(update, context):
         )
     elif query.data == "aboutmanu_credit":
         query.message.edit_text(
-            text=f"*Let's make your group bit effective now*"
+            text=f"*Let's make your group bot effective now*"
             f"\nCongragulations, @szrosebot🇱🇰 now ready to manage your group."
             f"\n\n*Admin Tools*"
             f"\nBasic Admin tools help you to protect and powerup your group."
@@ -472,8 +472,10 @@ def DewmiBot_about_callback(update, context):
         )
     elif query.data == "aboutmanu_tac":
         query.message.edit_text(
-            text=f"<b> CREDIT FOR @szrosebot🇱🇰  DEV'S</b>\n"
-            f"\nHere Some Developers Helping in Making The @szrosebot🇱🇰 Thank you all supporters ",
+            text=f"<b> CREDITS  FOR @szrosebot🇱🇰  DEV'S</b>\n"
+            f"\n Here you can find information about the bots I coded and the people who helped me create Rose"
+            f"\n Special credits [hirunaofficial](https://github.com/hirunaofficial/Telegram-Group-Management-Bot-DewmiBot) & [Anikivictor](https://github.com/Damantha126/The-Anki-Vector)
+            f"\n Finally my special thanks to you for using this bot,
             parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup(
                 [
@@ -522,7 +524,7 @@ def get_help(update, context):
             )
             return
         update.effective_message.reply_text(
-            "Contact me in PM to get the list of possible commands.",
+            "*Heya! I'am Rose - a group management bot here to help you manage your groups as effectively as possible*.\n\n*Contact me in PM to get the list of possible commands.*",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
@@ -535,6 +537,12 @@ def get_help(update, context):
                         InlineKeyboardButton(
                             text="Support Chat",
                             url="https://t.me/{}".format(SUPPORT_CHAT),
+                        )
+                    ],
+                    [
+                        InlineKeyboardButton(
+                            text="Updates",
+                            url="https://t.me/sl_bot_zone",
                         )
                     ],
                 ]
