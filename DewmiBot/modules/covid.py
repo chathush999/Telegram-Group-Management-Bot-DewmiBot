@@ -19,7 +19,6 @@ def covid(update: Update, context: CallbackContext):
         variabla = text[1]
         r = requests.get(f"https://corona.lmao.ninja/v2/countries/{variabla}").json()
         reply_text = f"**🦠 Corona Virus Results{r['country']} 🦠**\n🌡 Confirmed: {r['cases']:,}\nCases Today: {r['todayCases']:,}\n⚰️  Deaths: {r['deaths']:,}\nDeaths Today: {r['todayDeaths']:,}\n♻️ Recovered: {r['recovered']:,}\n🩸 Active: {r['active']:,}\nCritical: {r['critical']:,}\nCases/Mil: {r['casesPerOneMillion']}\nDeaths/Mil: {r['deathsPerOneMillion']}"
-
         message.reply_text(reply_text,parse_mode=ParseMode.MARKDOWN)
 
 
