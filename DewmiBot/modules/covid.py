@@ -1,6 +1,6 @@
 import requests
 from telegram import ParseMode, Update
-from telegram import InlineKeyboardButton,InlineKeyboardMarkup
+from telegram import InlineKeyboardButton,InlineKeyboardMarkup,Message
 from telegram.ext import CallbackContext, run_async
 
 from DewmiBot import dispatcher
