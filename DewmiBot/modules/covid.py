@@ -1,7 +1,7 @@
 import requests
 from telegram import ParseMode, Update
 from telegram.ext import CallbackContext, run_async
-
+from telegram import InlineKeyboardButton,InlineKeyboardMarkup
 from DewmiBot import dispatcher
 from DewmiBot.modules.disable import DisableAbleCommandHandler
 
@@ -13,11 +13,20 @@ def covid(update: Update, context: CallbackContext):
     if len(text) == 1:
         r = requests.get("https://corona.lmao.ninja/v2/all").json()
         reply_text = f"**Global Totals** 🦠\nCases: {r['cases']:,}\nCases Today: {r['todayCases']:,}\nDeaths: {r['deaths']:,}\nDeaths Today: {r['todayDeaths']:,}\nRecovered: {r['recovered']:,}\nActive: {r['active']:,}\nCritical: {r['critical']:,}\nCases/Mil: {r['casesPerOneMillion']}\nDeaths/Mil: {r['deathsPerOneMillion']}"
+        reply_markup=InlineKeyboardMarkup(
+                [[InlineKeyboardButton(text="Updates", url="t.me/sl_bot_zone")]],
+            ),
+        )
     else:
         variabla = text[1]
         r = requests.get(f"https://corona.lmao.ninja/v2/countries/{variabla}").json()
         reply_text = f"**Cases for {r['country']} 🦠**\nCases: {r['cases']:,}\nCases Today: {r['todayCases']:,}\nDeaths: {r['deaths']:,}\nDeaths Today: {r['todayDeaths']:,}\nRecovered: {r['recovered']:,}\nActive: {r['active']:,}\nCritical: {r['critical']:,}\nCases/Mil: {r['casesPerOneMillion']}\nDeaths/Mil: {r['deathsPerOneMillion']}"
-    message.reply_text(reply_text, parse_mode=ParseMode.MARKDOWN)
+        reply_markup=InlineKeyboardMarkup(
+                [[InlineKeyboardButton(text="Updates", url="t.me/sl_bot_zone")]],
+            ),
+        )
+        message.reply_text(reply_text, parse_mode=ParseMode.MARKDOWN)
+    
 
 
 COVID_HANDLER = DisableAbleCommandHandler(["covid", "corona"], covid)
