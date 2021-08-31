@@ -61,12 +61,9 @@ from DewmiBot.modules.helper_funcs.misc import paginate_modules
 from DewmiBot.modules.helper_funcs.readable_time import get_readable_time
 
 PM_START_TEXT = """
-𝙃𝙚𝙮 𝙩𝙝𝙚𝙧𝙚! 👋 𝙈𝙮 𝙣𝙖𝙢𝙚 𝙄𝙨 **Rose bot 🌹** .
+Hey there!👋  My name is Rose ✨
 
-𝙄 𝙘𝙖𝙣 𝙝𝙚𝙡𝙥 𝙢𝙖𝙣𝙖𝙜𝙚 𝙮𝙤𝙪𝙧 𝙜𝙧𝙤𝙪𝙥𝙨 𝙬𝙞𝙩𝙝 𝙪𝙨𝙚𝙛𝙪𝙡 𝙛𝙚𝙖𝙩𝙪𝙧𝙚𝙨, 𝙛𝙚𝙚𝙡 𝙛𝙧𝙚𝙚 𝙩𝙤 𝙖𝙙𝙙 𝙢𝙚 𝙩𝙤 𝙮𝙤𝙪𝙧 𝙜𝙧𝙤𝙪𝙥𝙨!
-
-𝗽𝗿𝗼𝗺𝗼𝘁𝗲 𝗺𝗲 𝗮𝘀 **𝗔𝗱𝗺𝗶𝗻** 𝘁𝗼 𝗹𝗲𝘁 𝗺𝗲 𝗴𝗲𝘁 𝗶𝗻 𝗮𝗰𝘁𝗶𝗼𝗻!
-
+I can manage your group with lots of useful features, feel free to add me to your group.
 """
 
 HELP_STRINGS = f"""
@@ -94,13 +91,13 @@ BUTTONS = [
     [
         InlineKeyboardButton(text="📢 Bot updates ", url=f"https://t.me/sl_bot_zone"),
         InlineKeyboardButton(
-            text="🤦‍♂️Socure code ", url=f"https://www.youtube.com/channel/UCvYfJcTr8RY72dIapzMqFQA"
+            text="Repo 📦", url=f"https://github.com/youtubeslgeekshow"
         ),
     ],
     [
         InlineKeyboardButton(text="Info & about 💁‍♀️", callback_data="aboutmanu_howto"),
         InlineKeyboardButton(
-            text=" More 🍁 ", callback_data="aboutmanu_"
+            text=" More 💫", callback_data="aboutmanu_"
         ),
     ],
     [
@@ -476,7 +473,7 @@ def DewmiBot_about_callback(update, context):
             f"\n Here you can find information about the bots I coded and the people who helped me create Rose"
             f"\n Special credits [hirunaofficial](https://github.com/hirunaofficial/Telegram-Group-Management-Bot-DewmiBot)  & [Anikivictor](https://github.com/Damantha126/The-Anki-Vector)"
             f"\n Finally my special thanks to you for using this bot",
-            parse_mode=ParseMode.HTML,
+            parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
                 [
