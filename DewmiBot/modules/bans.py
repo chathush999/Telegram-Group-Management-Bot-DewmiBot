@@ -106,8 +106,8 @@ def ban(update: Update, context: CallbackContext) -> str:
         chat.kick_member(user_id)
         # bot.send_sticker(chat.id, BAN_STICKER)  # banhammer marie sticker
         reply = (
-            f"<code>❕</code><b>Ban Event</b>\n"
-            f"<code> </code><b> 😏User:</b> {mention_html(member.user.id, html.escape(member.user.first_name))} @szrosebot🇱🇰"
+            f"<code>❕</code><b>Ban Event</b> wow 🤣\n"
+            f"<code> </code><b> 😏User:</b> {mention_html(member.user.id, html.escape(member.user.first_name))} By me @szrosebot🇱🇰"
         )
         if reason:
             reply += f"\n<code> </code><b>😕 Reason:</b> \n{html.escape(reason)} @szrosebot🇱🇰"
