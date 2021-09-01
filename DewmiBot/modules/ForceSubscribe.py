@@ -13,7 +13,7 @@ from pyrogram.types import ChatPermissions, InlineKeyboardButton, InlineKeyboard
 from DewmiBot import DRAGONS as SUDO_USERS
 from DewmiBot import pbot
 from DewmiBot.modules.sql import forceSubscribe_sql as sql
-from DewmiBot.modules.sudoers import bot_sys_stats
+
 
 logging.basicConfig(level=logging.INFO)
 
@@ -100,12 +100,6 @@ def _check_member(client, message):
                                         "UnMute Me", callback_data="onUnMuteRequest"
                                     )
                                 ],
-                                [
-                                    InlineKeyboardButton(
-                                        "Help ", 
-                                         callback_data="stats_callback"
-                                    )
-                                ],
                             ]
                         ),
                     )
@@ -122,11 +116,6 @@ def _check_member(client, message):
                     chat_id,
                     text=f"❗ **I not an admin of @{channel} channel.**\n__Give me admin of that channel and retry.\n#Ending FSub...__",
                 )
-
-@pbot.on_callback_query(filters.regex("stats_callback"))
-async def stats_callbacc(_, CallbackQuery):
-    text = await bot_sys_stats()
-    await pbot.answer_callback_query(CallbackQuery.id, text, show_alert=True)
     
 @pbot.on_message(filters.command(["forcesubscribe", "fsub"]) & ~filters.private)
 def config(client, message):
