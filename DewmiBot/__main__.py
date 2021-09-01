@@ -469,7 +469,7 @@ def DewmiBot_about_callback(update, context):
         )
     elif query.data == "aboutmanu_tac":
         query.message.edit_text(
-            text=f"<b> CREDITS  FOR @szrosebot🇱🇰  DEV'S</b>\n"
+            text=f"* CREDITS  FOR @szrosebot🇱🇰  DEV *\n"
             f"\n Here you can find information about the bots I coded and the people who helped me create Rose"
             f"\n Special credits [hirunaofficial](https://github.com/hirunaofficial/Telegram-Group-Management-Bot-DewmiBot)  & [Anikivictor](https://github.com/Damantha126/The-Anki-Vector)"
             f"\n Finally my special thanks to you for using this bot",
