@@ -230,7 +230,7 @@ def start(update: Update, context: CallbackContext):
             ),
             parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="Updates", url="t.me/sl_bot_zone")]],
+                [[InlineKeyboardButton(text="Help", callback_data="help_back")]],
             ),
         )
      
@@ -528,7 +528,7 @@ def get_help(update, context):
                     [
                         InlineKeyboardButton(
                             text="Help",
-                            url="t.me/{}?start=help".format(context.bot.username),
+                            callback_data="help_back",
                         )
                     ],
                     [
