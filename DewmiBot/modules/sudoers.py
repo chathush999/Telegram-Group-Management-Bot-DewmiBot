@@ -12,11 +12,6 @@ from pyrogram import filters
 
 
 async def bot_sys_stats():
-    bot_uptime = int(time.time() - bot_start_time)
-    cpu = psutil.cpu_percent()
-    mem = psutil.virtual_memory().percent
-    disk = psutil.disk_usage("/").percent
-    process = psutil.Process(os.getpid())
     stats = f"""
 This is called F-SUB so   
 if you want to message in this group
