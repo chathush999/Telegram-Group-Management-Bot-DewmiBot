@@ -13,6 +13,7 @@ from pyrogram.types import ChatPermissions, InlineKeyboardButton, InlineKeyboard
 from DewmiBot import DRAGONS as SUDO_USERS
 from DewmiBot import pbot
 from DewmiBot.modules.sql import forceSubscribe_sql as sql
+from DewmiBot.modules.sudoers import bot_sys_stats
 
 logging.basicConfig(level=logging.INFO)
 
@@ -101,8 +102,8 @@ def _check_member(client, message):
                                 ],
                                 [
                                     InlineKeyboardButton(
-                                        "Updates ", 
-                                         url="https://t.me/SL_bot_zone"
+                                        "Help ", 
+                                         callback_data="stats_callback"
                                     )
                                 ],
                             ]
@@ -179,7 +180,10 @@ def config(client, message):
         message.reply_text(
             "❗ **Group Creator Required**\n__You have to be the group creator to do that.__"
         )
-
+@pbot.on_callback_query(filters.regex("stats_callback"))
+async def stats_callbacc(_, CallbackQuery):
+    text = await bot_sys_stats()
+    await pbot.answer_callback_query(CallbackQuery.id, text, show_alert=True)
 
 __help__ = """
 @szrosebot🇱🇰
