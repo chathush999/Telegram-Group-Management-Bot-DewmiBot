@@ -230,7 +230,7 @@ def start(update: Update, context: CallbackContext):
             ),
             parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="Help", callback_data="help_back")]],
+                [[InlineKeyboardButton(text="Help ", callback_data="help_back")]],
             ),
         )
      
