@@ -6,7 +6,7 @@ import time
 import psutil
 from pyrogram import filters
 
-from DewmiBot import (bot_start_time, DEV_USERS, pbot)
+from DewmiBot import ( DEV_USERS, pbot)
 from DewmiBot.utils import formatter
 
 # Stats Module
