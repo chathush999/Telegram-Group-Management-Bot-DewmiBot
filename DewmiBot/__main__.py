@@ -59,7 +59,7 @@ from DewmiBot.modules.helper_funcs.alternate import typing_action
 from DewmiBot.modules.helper_funcs.chat_status import is_user_admin
 from DewmiBot.modules.helper_funcs.misc import paginate_modules
 from DewmiBot.modules.helper_funcs.readable_time import get_readable_time
-from Sophia.modules.sudoers import bot_sys_stats
+from DewmiBot.modules.sudoers import bot_sys_stats
 
 PM_START_TEXT = """
 Hey there!👋  My name is Rose ✨
