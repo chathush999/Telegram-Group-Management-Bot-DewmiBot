@@ -59,4 +59,3 @@ wget
 fake-useragent
 asyncio
 youtube_dl
-io
