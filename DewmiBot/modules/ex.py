@@ -1,7 +1,8 @@
 __help__ =  """
 @szrosebot🇱🇰
 ** Telegraph ** 
- ❍ /telegraph - Get Telegraph Link Of Replied Media
+  ❍ tm :Get Telegraph Link Of Replied Media
+  ❍ txt :Get Telegraph Link of Replied Text
  I can upload files to Telegraph
 """
 __mod_name__ = "Telegraph"       
