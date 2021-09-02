@@ -59,7 +59,6 @@ from DewmiBot.modules.helper_funcs.alternate import typing_action
 from DewmiBot.modules.helper_funcs.chat_status import is_user_admin
 from DewmiBot.modules.helper_funcs.misc import paginate_modules
 from DewmiBot.modules.helper_funcs.readable_time import get_readable_time
-from DewmiBot.modules.sudoers import bot_sys_stats
 
 PM_START_TEXT = """
 Hey there!👋  My name is Rose ✨
@@ -348,13 +347,7 @@ def help_button(update, context):
         else:
             query.message.edit_text(excp.message)
             LOGGER.exception("Exception in help buttons. %s", str(query.data))
-            
-            
-@pbot.on_callback_query(filters.regex("stats_callback"))
-async def stats_callbacc(_, CallbackQuery):
-    text = await bot_sys_stats()
-    await pbot.answer_callback_query(CallbackQuery.id, text, show_alert=True)
-
+           
     
 @run_async
 def DewmiBot_about_callback(update, context):
