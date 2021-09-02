@@ -81,7 +81,12 @@ DONATE_STRING = """
 𝒀𝒐𝒖 𝒄𝒂𝒏 𝒅𝒐𝒏𝒂𝒕𝒆 𝒕𝒐 𝒕𝒉𝒆 𝒐𝒓𝒊𝒈𝒊𝒏𝒂𝒍 𝒘𝒓𝒊𝒕𝒆𝒓'𝒔 𝒐𝒇 𝒕𝒉𝒆 𝑩𝒂𝒔𝒆 𝒄𝒐𝒅𝒆,
 𝑺𝒖𝒑𝒑𝒐𝒓𝒕 𝒕𝒉𝒆𝒎 [Youtube](https://www.youtube.com/channel/UCvYfJcTr8RY72dIapzMqFQA)
 """
-ROSEBOT_STICKER = "CAACAgUAAxkDAAJRk2EsmXHM9GX2AsHafVBSXmrsqJPeAAIRAwACHUmhVNYuprqSm_zGIAQ"
+STICKERS = (
+      "CAACAgUAAxkDAAJRk2EsmXHM9GX2AsHafVBSXmrsqJPeAAIRAwACHUmhVNYuprqSm_zGIAQ",
+      "CAACAgUAAxkBAAJbomEwT4YK4MGcUjWGrI4EOnHeXQUbAAKwAgACPcJIVXi-ppqwxSowIAQ",
+      "CAACAgUAAxkBAAJbpGEwT5aR7NWPjoRgHRl8oP-B21AoAALuAwACRLqpVJ_AVXE8L5zHIAQ",
+      "CAACAgUAAxkBAAJbn2EwT3Wb7egQtnn42LQuvp6Zw1DVAAJnBAACVptJVagLM1hpehzFIAQ",
+      "CAACAgUAAxkBAAJbnGEwT2VEStWCJIXIwIEu8rlSwU9MAALQAwACubJIVWAarwqi9W7LIAQ",
 
 BUTTONS = [
     [
@@ -214,8 +219,7 @@ def start(update: Update, context: CallbackContext):
                 IMPORTED["rules"].send_rules(update, args[0], from_pm=True)
 
         else:
-            update.effective_message.reply_sticker(
-                ROSEBOT_STICKER,
+            update.effective_message.reply_sticker(random.choice(STICKERS)),
                 timeout=60,
             )
             update.effective_message.reply_text(
