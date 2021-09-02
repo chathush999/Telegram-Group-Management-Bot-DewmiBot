@@ -2,7 +2,7 @@ from pyrogram import filters
 from io import BytesIO
 
 from DewmiBot import app
-from DewmiBot.modules.carbon,import make_carbon
+from DewmiBot.modules.carbon import make_carbon
 
 
 @app.on_message(filters.command("carbon"))
