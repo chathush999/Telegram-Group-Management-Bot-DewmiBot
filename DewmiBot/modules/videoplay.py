@@ -25,4 +25,4 @@ __help__ = """
 
 Powerd by @szrosebot
 """
-__mod_name__ = "Night mode"
+__mod_name__ = "video play "
