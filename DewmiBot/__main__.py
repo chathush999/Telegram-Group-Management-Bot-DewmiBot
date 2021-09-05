@@ -530,7 +530,7 @@ def get_help(update, context):
             )
             return
         update.effective_message.reply_text(
-            "*Heya! I'am Rose - a group management bot here to help you manage your groups as effectively as possible*.\n\n*Contact me in PM to get the list of possible commands.*",
+            "**Heya! I'am Rose - a group management bot here to help you manage your groups as effectively as possible**.\n\n**Contact me in PM to get the list of possible commands.**",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
