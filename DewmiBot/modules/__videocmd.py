@@ -13,5 +13,5 @@ def ehi(update: Update, context: CallbackContext):
     parse_mode=ParseMode.MARKDOWN,
     disable_web_page_preview=True,
 
-EHI_HANDLER = DisableAbleCommandHandler("vplay",vplay)
+EHI_HANDLER = DisableAbleCommandHandler("vplay")
 dispatcher.add_handler(EHI_HANDLER)
