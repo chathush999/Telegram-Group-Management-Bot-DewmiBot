@@ -535,20 +535,14 @@ def get_help(update, context):
                 [
                     [
                         InlineKeyboardButton(
-                            text="Help",
+                            text="Help and commands",
                             callback_data="help_back",
                         )
                     ],
                     [
                         InlineKeyboardButton(
-                            text="Support Chat",
-                            url="https://t.me/{}".format(SUPPORT_CHAT),
-                        )
-                    ],
-                    [
-                        InlineKeyboardButton(
-                            text="Updates",
-                            url="https://t.me/sl_bot_zone",
+                            text="Video play help",
+                            url="https://t.me/SL_bot_zone/507",
                         )
                     ],
                 ]
